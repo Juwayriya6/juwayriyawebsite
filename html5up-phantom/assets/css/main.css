@@ -1,0 +1,92 @@
+/* Fonts & Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f0eb; /* soft light taupe */
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  color: #222;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header Banner */
+header {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+header img.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Main Gallery Section */
+main {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0; /* no rounded corners */
+  box-shadow: none; /* no shadows */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f5f0eb;
+  font-weight: 300;
+  color: #222;
+}
+
+footer p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.contact-link {
+  color: #b3272d; /* red color like Audrey */
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: #800000; /* slightly darker red on hover */
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Responsive text sizing */
+@media (max-width: 600px) {
+  footer p {
+    font-size: 0.9rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
