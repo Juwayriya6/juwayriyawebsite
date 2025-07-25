@@ -1,9 +1,9 @@
-/* Base styles */
+/* Reset and base styles */
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   color: #333;
-  background-color: #e8ded4; /* lighter taupe */
+  background-color: #e6dfd5; /* lighter taupe */
   line-height: 1.6;
 }
 
@@ -13,63 +13,75 @@ a {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
-  border: none;
+  border-radius: 0; /* no rounded corners */
+  outline: none; /* no outline on focus/hover */
 }
 
 /* Container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 /* Banner */
 #banner {
-  width: 100%;
-  margin: 0;
+  background-color: #e6dfd5; /* lighter taupe background */
+  text-align: center;
   padding: 0;
-  background-color: #e8ded4;
 }
 
 #banner img {
   width: 100%;
+  max-height: 160px; /* slim banner height */
   height: auto;
-  max-height: 200px; /* LIMIT HEIGHT */
   object-fit: contain;
+  display: inline-block;
 }
 
 /* Gallery */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  padding: 4rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 3rem 1rem 4rem;
 }
 
 .gallery img {
-  border-radius: 0;
-  box-shadow: none;
+  flex-shrink: 0;
+  height: auto;
+  max-width: 300px; /* max width for images so they’re not huge */
+  width: auto;
+  /* no border, no outline */
+  outline: none;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
-  color: #555;
-  background-color: #e8ded4;
+  color: #666;
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .gallery {
-    padding: 2rem 1rem;
+  #banner img {
+    max-height: 120px;
   }
 
-  #banner img {
-    max-height: 140px;
+  .gallery {
+    gap: 1rem;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .gallery img {
+    max-width: 90vw; /* almost full width on mobile */
+    height: auto;
   }
 }
+
