@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
-  color: #222;
-  background-color: #f7f2ec; /* soft light taupe background */
+  color: #333;
+  background-color: #f7f0e9; /* Soft light taupe */
   line-height: 1.6;
 }
 
@@ -18,66 +18,56 @@ img {
   height: auto;
 }
 
-/* Container for consistent horizontal padding */
+/* Container for content max width */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem 3rem;
+  padding: 2rem;
 }
 
 /* Banner */
 #banner {
-  position: relative;
   width: 100%;
-  height: auto;
-  max-height: 400px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f7f2ec; /* fallback color */
+  background-color: #f7f0e9;
+  padding: 0;
 }
 
 #banner img {
   width: 100%;
   height: auto;
-  object-fit: contain; /* keep entire image visible */
-  max-height: 400px;
+  object-fit: contain;
+  display: block;
 }
-
-/* Optional overlay text */
-/*
-#banner h1 {
-  position: absolute;
-  color: white;
-  font-weight: 300;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-  user-select: none;
-}
-*/
 
 /* Gallery */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
-  padding-top: 2rem;
-  justify-items: center;
+  justify-content: center;
+  padding: 2rem 0 4rem;
 }
 
 .gallery img {
-  width: 100%;
-  max-width: 300px;
+  width: auto;
+  max-width: 300px; /* max width */
   height: auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border-radius: 0; /* no rounding */
-  transition: transform 0.3s ease;
   cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.3s ease;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.gallery img:hover,
+.gallery img:focus {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transform: none;
+  outline: none;
 }
 
 /* Footer */
@@ -86,23 +76,22 @@ footer {
   padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #666;
+  background-color: #f7f0e9;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  #banner {
-    max-height: 250px;
-  }
-
   #banner img {
-    max-height: 250px;
+    max-height: 300px;
+    object-fit: contain;
   }
 
   .gallery {
     gap: 1rem;
+    padding: 1rem 1rem 3rem;
   }
 
   .gallery img {
-    max-width: 100%;
+    max-width: 45vw;
   }
 }
