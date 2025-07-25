@@ -1,79 +1,76 @@
-/* Base styles */
+/* Reset and base styles */
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  color: #222;
-  background-color: #f3ece6; /* soft light taupe */
-  line-height: 1.5;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+  background-color: #f3ece6; /* lighter taupe */
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 /* Banner */
 #banner {
   width: 100%;
-  padding: 0;
-  background-color: #f3ece6; /* same taupe behind banner */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 160px;  /* Restored banner height */
+  height: 160px;  /* slim fixed height */
+  background-image: url('../images/art7-banner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* fit entire image without cropping */
+  background-color: #f3ece6; /* same as body */
+  margin-bottom: 3rem;
 }
 
-#banner img {
-  max-width: 100%;
-  max-height: 160px; /* keep banner full height */
-  height: auto;
-  display: block;
-}
-
-/* Container to center gallery and limit max width */
-.gallery-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* Gallery uses flexbox to center and wrap images */
+/* Gallery */
 .gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  padding: 0 1rem 4rem;
 }
 
-/* Gallery images keep natural aspect ratio */
 .gallery img {
-  max-height: 250px; /* limit height */
-  height: auto;
-  width: auto;
   display: block;
-  border: none;
-  box-shadow: none;
+  width: 100%;
+  height: auto;
   object-fit: contain;
+  border-radius: 0; /* no rounding */
+  box-shadow: none; /* no outlines */
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 600px) {
+/* Responsive */
+@media screen and (max-width: 768px) {
   #banner {
-    height: 110px;
+    height: 120px; /* smaller banner on mobile */
   }
 
-  #banner img {
-    max-height: 110px;
-  }
-
-  .gallery img {
-    max-height: 180px;
-  }
-
-  .gallery-container {
-    padding: 1rem 0.5rem;
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 0 0.5rem 3rem;
   }
 }
