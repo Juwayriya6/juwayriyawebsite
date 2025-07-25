@@ -10,16 +10,17 @@ body {
 /* Banner */
 #banner {
   width: 100%;
-  padding: 1rem 0;
+  padding: 0;
   background-color: #f3ece6; /* same taupe behind banner */
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 160px;  /* Restored banner height */
 }
 
 #banner img {
   max-width: 100%;
-  max-height: 100px; /* slim banner height */
+  max-height: 160px; /* keep banner full height */
   height: auto;
   display: block;
 }
@@ -60,8 +61,12 @@ footer {
 
 /* Responsive adjustments */
 @media screen and (max-width: 600px) {
+  #banner {
+    height: 110px;
+  }
+
   #banner img {
-    max-height: 70px;
+    max-height: 110px;
   }
 
   .gallery img {
