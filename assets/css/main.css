@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
   color: #333;
-  background-color: #d2c4b5; /* taupe background */
+  background-color: #e8ded4; /* lighter taupe */
   line-height: 1.6;
 }
 
@@ -31,12 +31,13 @@ img {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #e8ded4;
 }
 
 #banner img {
   width: 100%;
   height: auto;
-  display: block;
+  max-height: 200px; /* LIMIT HEIGHT */
   object-fit: contain;
 }
 
@@ -59,16 +60,16 @@ footer {
   padding: 2rem;
   font-size: 0.9rem;
   color: #555;
+  background-color: #e8ded4;
 }
 
-/* Mobile Responsiveness */
+/* Responsive */
 @media screen and (max-width: 768px) {
   .gallery {
     padding: 2rem 1rem;
   }
 
   #banner img {
-    width: 100%;
-    height: auto;
+    max-height: 140px;
   }
 }
