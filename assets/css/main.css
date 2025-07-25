@@ -1,87 +1,74 @@
-/* Reset and base styles */
+/* Base styles */
 body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
-  color: #333;
-  background-color: #e6dfd5; /* lighter taupe */
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 0; /* no rounded corners */
-  outline: none; /* no outline on focus/hover */
-}
-
-/* Container */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  color: #222;
+  background-color: #f3ece6; /* soft light taupe */
+  line-height: 1.5;
 }
 
 /* Banner */
 #banner {
-  background-color: #e6dfd5; /* lighter taupe background */
-  text-align: center;
-  padding: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #f3ece6; /* same taupe behind banner */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #banner img {
-  width: 100%;
-  max-height: 160px; /* slim banner height */
+  max-width: 100%;
+  max-height: 100px; /* slim banner height */
   height: auto;
-  object-fit: contain;
-  display: inline-block;
+  display: block;
 }
 
-/* Gallery */
+/* Container to center gallery and limit max width */
+.gallery-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Gallery uses flexbox to center and wrap images */
 .gallery {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
-  padding: 3rem 1rem 4rem;
 }
 
+/* Gallery images keep natural aspect ratio */
 .gallery img {
-  flex-shrink: 0;
+  max-height: 250px; /* limit height */
   height: auto;
-  max-width: 300px; /* max width for images so they’re not huge */
   width: auto;
-  /* no border, no outline */
-  outline: none;
+  display: block;
+  border: none;
+  box-shadow: none;
+  object-fit: contain;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
   #banner img {
-    max-height: 120px;
-  }
-
-  .gallery {
-    gap: 1rem;
-    padding: 2rem 1rem 3rem;
+    max-height: 70px;
   }
 
   .gallery img {
-    max-width: 90vw; /* almost full width on mobile */
-    height: auto;
+    max-height: 180px;
+  }
+
+  .gallery-container {
+    padding: 1rem 0.5rem;
   }
 }
-
