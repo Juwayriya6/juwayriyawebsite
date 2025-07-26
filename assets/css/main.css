@@ -1,9 +1,9 @@
 /* Reset and base styles */
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   color: #333;
-  background-color: #e6dfd5; /* lighter taupe */
+  background-color: #f4f0ec; /* Light taupe background */
   line-height: 1.6;
 }
 
@@ -13,75 +13,63 @@ a {
 }
 
 img {
-  display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 0; /* no rounded corners */
-  outline: none; /* no outline on focus/hover */
+  display: block;
+  border: none; /* Removes default outline */
 }
 
-/* Container */
+/* Layout and spacing */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
 }
 
 /* Banner */
 #banner {
-  background-color: #e6dfd5; /* lighter taupe background */
-  text-align: center;
   padding: 0;
+  margin: 0;
+  background-color: #f4f0ec; /* same taupe background */
 }
 
 #banner img {
   width: 100%;
-  max-height: 160px; /* slim banner height */
   height: auto;
+  display: block;
   object-fit: contain;
-  display: inline-block;
 }
 
 /* Gallery */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  padding: 3rem 1rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
 }
 
 .gallery img {
-  flex-shrink: 0;
-  height: auto;
-  max-width: 300px; /* max width for images so they’re not huge */
-  width: auto;
-  /* no border, no outline */
-  outline: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
-  #banner img {
-    max-height: 120px;
-  }
-
   .gallery {
-    gap: 1rem;
-    padding: 2rem 1rem 3rem;
+    padding: 2rem 1rem;
   }
 
-  .gallery img {
-    max-width: 90vw; /* almost full width on mobile */
+  #banner img {
+    width: 100%;
     height: auto;
+    object-fit: contain;
   }
 }
-
