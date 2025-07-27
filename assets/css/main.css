@@ -1,9 +1,9 @@
-/* Reset and base styles */
+/* Base styles */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
   color: #333;
-  background-color: #f4f0ec; /* Light taupe background */
+  background-color: #f2e8e0; /* Light taupe */
   line-height: 1.6;
 }
 
@@ -13,31 +13,30 @@ a {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
-  border: none; /* Removes default outline */
+  border: none;
 }
 
-/* Layout and spacing */
+/* Container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 /* Banner */
 #banner {
+  background-image: url("assets/images/art7-banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 240px;
+  width: 100%;
   padding: 0;
   margin: 0;
-  background-color: #f4f0ec; /* same taupe background */
-}
-
-#banner img {
-  width: 100%;
-  height: auto;
   display: block;
-  object-fit: contain;
 }
 
 /* Gallery */
@@ -45,31 +44,30 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
 }
 
+/* Individual artwork */
 .gallery img {
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* Responsive Styles */
+/* Mobile styles */
 @media screen and (max-width: 768px) {
-  .gallery {
-    padding: 2rem 1rem;
+  #banner {
+    height: 200px;
   }
 
-  #banner img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+  .gallery {
+    padding: 2rem 0;
   }
 }
