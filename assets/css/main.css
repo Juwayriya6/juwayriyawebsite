@@ -6,11 +6,11 @@ body {
 }
 
 #banner {
-  background-image: url("assets/images/art7-banner.png");
+  background-image: url("../images/art7-banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 240px;
+  height: 240px; /* Slim banner height */
   width: 100%;
   padding: 0;
   margin: 0;
@@ -38,4 +38,17 @@ footer {
   background-color: #f7f2ed;
   color: #555;
   font-size: 0.9rem;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+  #banner {
+    height: 180px; /* smaller banner on mobile */
+  }
+  
+  .gallery {
+    margin: 20px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
 }
