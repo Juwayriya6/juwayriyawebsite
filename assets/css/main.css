@@ -1,61 +1,96 @@
-/* Base Styles */
-body {
+/* Reset and base styles */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f2ece4; /* light taupe */
+  background-color: #f7f2ed; /* light taupe */
   color: #333;
   line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: none;
 }
 
 /* Banner */
 #banner {
   width: 100%;
-  background-color: #f2ece4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f7f2ed; /* fallback */
 }
 
-#banner .banner-img {
+#banner img {
   width: 100%;
-  height: auto;
-  object-fit: contain; /* ensures full banner fits without cropping */
+  max-width: 1920px; /* keeps full-size for large screens */
+  height: auto;      /* maintains aspect ratio */
   display: block;
 }
 
-/* Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+/* Gallery container */
+.gallery.container {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 16px;
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+/* Gallery images */
+.gallery-grid img {
+  width: 100%;
+  height: auto; /* maintain individual aspect ratios */
+  display: block;
+  border: none; /* remove outlines */
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f2ece4;
+  background-color: #f7f2ed;
   color: #555;
   font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .gallery-grid {
+    gap: 16px;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  #banner {
+    height: auto; /* banner adapts height automatically */
+  }
+
+  #banner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
-    padding: 0 8px;
+  }
+
+  .gallery.container {
+    padding: 0 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* single column on very small screens */
+    gap: 10px;
   }
 }
