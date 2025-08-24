@@ -1,21 +1,22 @@
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f7f2ed;
+  background-color: #f7f2ed; /* light taupe */
   color: #333;
 }
 
+/* Banner */
 #banner {
   width: 100%;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
+  max-height: 500px; /* keep banner from being too tall */
 }
 
 #banner img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
 /* Gallery */
@@ -33,6 +34,7 @@ body {
   height: auto;
   display: block;
   border: none;
+  border-radius: 4px;
 }
 
 /* Footer */
