@@ -1,22 +1,35 @@
+/* Base Styles */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f7f2ed;
+  background-color: #f2ece4; /* light taupe */
   color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
 }
 
 /* Banner */
 #banner {
   width: 100%;
-  overflow: hidden;
+  background-color: #f2ece4;
 }
 
-.banner-img {
+#banner .banner-img {
   width: 100%;
   height: auto;
+  object-fit: contain; /* ensures full banner fits without cropping */
   display: block;
-  object-fit: cover;
-  max-height: 400px; /* keeps banner big but not overwhelming */
 }
 
 /* Gallery */
@@ -29,18 +42,20 @@ body {
   padding: 0 16px;
 }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: none;
-}
-
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f7f2ed;
+  background-color: #f2ece4;
   color: #555;
   font-size: 0.9rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 0 8px;
+  }
 }
