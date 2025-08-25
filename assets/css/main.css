@@ -14,7 +14,7 @@ a {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border: none;
 }
@@ -22,49 +22,56 @@ img {
 /* Banner */
 #banner {
   width: 100%;
+  background-color: #f7f2ed;
+  text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #f7f2ed; /* taupe background */
 }
 
 #banner img {
   width: 100%;
-  height: auto;         /* preserves aspect ratio */
-  max-height: 280px;    /* prevents it from being too tall */
-  display: block;
-  object-fit: contain;   /* entire image fits inside */
+  max-height: 240px; /* keeps banner slim */
+  object-fit: contain;
 }
 
-/* Mobile-specific tweaks */
-@media screen and (max-width: 768px) {
-  #banner img {
-    max-height: 220px;   /* slightly smaller on mobile */
-  }
+/* Gallery container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-/* Gallery */
+/* Gallery grid */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 16px;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: none;
-  border-radius: 0; /* no outlines */
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #f7f2ed;
-  color: #555;
+  padding: 2rem;
   font-size: 0.9rem;
+  color: #555;
+  background-color: #f7f2ed;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #banner img {
+    width: 100%;
+    max-height: 200px;
+  }
 }
