@@ -12,22 +12,40 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+
 /* Banner */
 #banner {
   width: 100%;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f2ed; /* taupe background */
 }
 
 #banner img {
   width: 100%;
-  height: auto;
+  height: auto;         /* preserves aspect ratio */
+  max-height: 280px;    /* prevents it from being too tall */
   display: block;
+  object-fit: contain;   /* entire image fits inside */
+}
+
+/* Mobile-specific tweaks */
+@media screen and (max-width: 768px) {
+  #banner img {
+    max-height: 220px;   /* slightly smaller on mobile */
+  }
 }
 
 /* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
   max-width: 1200px;
   margin: 40px auto;
@@ -39,7 +57,7 @@ a {
   height: auto;
   display: block;
   border: none;
-  object-fit: contain;
+  border-radius: 0; /* no outlines */
 }
 
 /* Footer */
@@ -49,13 +67,4 @@ footer {
   background-color: #f7f2ed;
   color: #555;
   font-size: 0.9rem;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    padding: 0 12px;
-  }
 }
