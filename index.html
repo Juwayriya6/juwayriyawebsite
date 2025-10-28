@@ -4,28 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>juwayriya</title>
-  <meta name="description" content="Portfolio of Juwayriya — surreal, dreamy paintings in jade light." />
-  <link rel="preload" as="font" href="assets/fonts/SirensDEMO.woff2" type="font/woff2" crossorigin>
+  <meta name="description" content="juwayriya — dreamy surrealism in jade light." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <main class="wrap">
     <figure class="card">
-      <img
-        src="assets/images/hero-960.webp"
-        srcset="
-          assets/images/hero-720.webp 720w,
-          assets/images/hero-960.webp 960w,
-          assets/images/hero-1200.webp 1200w"
-        sizes="(max-width: 640px) 70vw, (max-width: 1200px) 42vw, 420px"
-        alt="Your hero artwork"
-        width="960" height="1280" loading="eager" fetchpriority="high" />
+      <picture>
+        <source type="image/webp"
+                srcset="assets/images/hero-720.webp 720w,
+                        assets/images/hero-960.webp 960w,
+                        assets/images/hero-1200.webp 1200w"
+                sizes="(max-width: 640px) 72vw, (max-width: 1200px) 48vw, 420px">
+        <source type="image/png"
+                srcset="assets/images/hero-720.png 720w,
+                        assets/images/hero-960.png 960w,
+                        assets/images/hero-1200.png 1200w"
+                sizes="(max-width: 640px) 72vw, (max-width: 1200px) 48vw, 420px">
+        <img src="assets/images/hero-960.png" alt="Hero artwork"
+             width="960" height="1280" loading="eager" fetchpriority="high">
+      </picture>
     </figure>
-    <h1 class="brand" aria-label="juwayriya">
-      <span>juwayriya</span>
-    </h1>
+
+    <h1 class="brand" aria-label="juwayriya"><span>juwayriya</span></h1>
     <a class="enter" href="#gallery">enter</a>
   </main>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
