@@ -1,185 +1,79 @@
-/*
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Tiny helper utilities */
+const qs = (s, el=document)=>el.querySelector(s);
+const qsa = (s, el=document)=>[...el.querySelectorAll(s)];
 
-(function($) {
+/* Year stamp */
+qs('#year') && (qs('#year').textContent = new Date().getFullYear());
 
-	var	$window = $(window),
-		$body = $('body');
+/* Hero slideshow (data-driven like Chroma Botanica’s approach) */
+(function(){
+  const hero = qs('#hero');
+  if(!hero) return;
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ]
-		});
+  const slides = JSON.parse(hero.getAttribute('data-slides') || '[]');
+  if(!slides.length) return;
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+  const bg = hero; // using :before via CSS
+  let i = 0;
+  const dots = qs('.navdots');
+  slides.forEach((_, idx)=>{
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Go to slide ${idx+1}`);
+    b.addEventListener('click', ()=>{ i=idx; set(true); });
+    dots.appendChild(b);
+  });
 
-	// Touch?
-		if (browser.mobile)
-			$body.addClass('is-touch');
+  function set(jump){
+    const s = slides[i];
+    hero.style.setProperty('--bg-pos', s.pos || 'center center');
+    // swap background image by toggling CSS var through inline style
+    hero.style.setProperty('--bg-url', `url('${s.src}')`);
+    hero.style.setProperty('--bg-idx', i);
+    // update pseudo-element background:
+    hero.style.setProperty('--bg', `url('${s.src}')`);
+    // reflect active dot
+    qsa('.navdots button').forEach((b,idx)=> b.setAttribute('aria-current', idx===i ? 'true':'false'));
+    if(!jump) i = (i+1) % slides.length;
+  }
 
-	// Forms.
-		var $form = $('form');
+  // hook CSS ::before to our --bg var
+  const style = document.createElement('style');
+  style.textContent = `
+    #hero::before{ background-image: var(--bg) }
+  `;
+  document.head.appendChild(style);
 
-		// Auto-resizing textareas.
-			$form.find('textarea').each(function() {
+  set(true);
+  setInterval(()=>set(false), 6000);
+})();
 
-				var $this = $(this),
-					$wrapper = $('<div class="textarea-wrapper"></div>'),
-					$submits = $this.find('input[type="submit"]');
+/* Lightbox using Poptrox (same plugin used by HTML5 UP) */
+(function(){
+  const gallery = qs('.gallery .grid');
+  if(!gallery || !window.jQuery || !jQuery.fn.poptrox) return;
+  jQuery(gallery).poptrox({
+    overlayColor: '#000',
+    overlayOpacity: 0.85,
+    usePopupCaption: true,
+    caption: function($a){
+      try {
+        const meta = JSON.parse($a.attr('data-caption') || '{}');
+        const title = meta.title ? `<strong>${meta.title}</strong>` : '';
+        const text  = meta.text  ? `<div>${meta.text}</div>` : '';
+        return `${title}${text}`;
+      } catch(e){ return ''; }
+    }
+  });
+})();
 
-				$this
-					.wrap($wrapper)
-					.attr('rows', 1)
-					.css('overflow', 'hidden')
-					.css('resize', 'none')
-					.on('keydown', function(event) {
-
-						if (event.keyCode == 13
-						&&	event.ctrlKey) {
-
-							event.preventDefault();
-							event.stopPropagation();
-
-							$(this).blur();
-
-						}
-
-					})
-					.on('blur focus', function() {
-						$this.val($.trim($this.val()));
-					})
-					.on('input blur focus --init', function() {
-
-						$wrapper
-							.css('height', $this.height());
-
-						$this
-							.css('height', 'auto')
-							.css('height', $this.prop('scrollHeight') + 'px');
-
-					})
-					.on('keyup', function(event) {
-
-						if (event.keyCode == 9)
-							$this
-								.select();
-
-					})
-					.triggerHandler('--init');
-
-				// Fix.
-					if (browser.name == 'ie'
-					||	browser.mobile)
-						$this
-							.css('max-height', '10em')
-							.css('overflow-y', 'auto');
-
-			});
-
-	// Menu.
-		var $menu = $('#menu');
-
-		$menu.wrapInner('<div class="inner"></div>');
-
-		$menu._locked = false;
-
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-				event.stopPropagation();
-			})
-			.on('click', 'a', function(event) {
-
-				var href = $(this).attr('href');
-
-				event.preventDefault();
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
-
-				// Redirect.
-					if (href == '#menu')
-						return;
-
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 350);
-
-			})
-			.append('<a class="close" href="#menu">Close</a>');
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('click', function(event) {
-
-				// Hide.
-					$menu._hide();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
-			});
-
-})(jQuery);
+/* Smooth anchors */
+qsa('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', (e)=>{
+    const id = a.getAttribute('href').slice(1);
+    const el = qs(`#${id}`);
+    if(!el) return;
+    e.preventDefault();
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
