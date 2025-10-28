@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collections — Juwayriya Art</title>
+  <meta name="description" content="Collections by series: Memories in Resistance, Illuminated Manuscripts, Astronomy, Surreal Portraits." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
+
+  <div class="grain"></div>
+
+  <header class="subnav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Juwayriya <span>Art</span></a>
+      <nav>
+        <a href="index.html#gallery">Work</a>
+        <a class="active" href="collections.html">Collections</a>
+        <a href="about.html">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section hero hero--short" style="--bg:url('assets/images/hero-3.webp')">
+    <div class="hero__overlay"></div>
+    <div class="wrap">
+      <h1 class="page">Collections</h1>
+      <p class="tag">Browse by series</p>
+    </div>
+  </section>
+
+  <section class="section collections">
+    <div class="wrap">
+      <div class="filters" role="tablist" aria-label="Collections">
+        <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="memories">Memories in Resistance</button>
+        <button class="chip" data-filter="illuminated">Illuminated Manuscripts</button>
+        <button class="chip" data-filter="astronomy">Astronomy</button>
+        <button class="chip" data-filter="portraits">Surreal Portraits</button>
+      </div>
+
+      <ul class="grid" id="collections-grid">
+        <!-- Example items; duplicate & change data-collection/src/caption -->
+        <li data-collection="memories">
+          <a href="assets/images/art1.webp" class="thumb"
+             data-caption='{"title":"Prairie Constellations","text":"Oil on canvas, 24×30 — Memories in Resistance"}'>
+            <img src="assets/images/art1.webp" alt="Prairie Constellations" loading="lazy" />
+          </a>
+        </li>
+        <li data-collection="illuminated">
+          <a href="assets/images/art2.webp" class="thumb"
+             data-caption='{"title":"Illuminated Field","text":"Oil on canvas, 30×40 — Illuminated Manuscripts"}'>
+            <img src="assets/images/art2.webp" alt="Illuminated Field" loading="lazy" />
+          </a>
+        </li>
+        <li data-collection="astronomy">
+          <a href="assets/images/art3.webp" class="thumb"
+             data-caption='{"title":"Orbit of Memory","text":"Oil on canvas, 18×24 — Astronomy"}'>
+            <img src="assets/images/art3.webp" alt="Orbit of Memory" loading="lazy" />
+          </a>
+        </li>
+        <li data-collection="portraits">
+          <a href="assets/images/art4.webp" class="thumb"
+             data-caption='{"title":"Ancestral Echo","text":"Oil on canvas, 24×36 — Surreal Portraits"}'>
+            <img src="assets/images/art4.webp" alt="Ancestral Echo" loading="lazy" />
+          </a>
+        </li>
+
+        <!-- add more: art5.webp ... art11.webp etc. -->
+      </ul>
+    </div>
+  </section>
+
+  <footer class="section footer">
+    <div class="wrap small">
+      <p>© <span id="year"></span> Juwayriya Abdullahi. Glassy panels + lightbox for an ethereal, modern gallery.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/poptrox.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
