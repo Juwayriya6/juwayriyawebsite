@@ -1,11 +1,8 @@
-/* Helpers */
 const qs = (s, el=document)=>el.querySelector(s);
 const qsa = (s, el=document)=>[...el.querySelectorAll(s)];
 
-/* Year */
 qs('#year') && (qs('#year').textContent = new Date().getFullYear());
 
-/* Hero slideshow with Ken Burns */
 (function(){
   const hero = qs('#hero');
   if(!hero) return;
@@ -36,21 +33,20 @@ qs('#year') && (qs('#year').textContent = new Date().getFullYear());
   }
 
   const style = document.createElement('style');
-  style.textContent = `#hero::before{ background-image: var(--bg); background-position: var(--bg-pos); animation: hero-kenburns 18s ease-in-out infinite; transform-origin: var(--kb-origin, 50% 50%);} @keyframes hero-kenburns{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}`;
+  style.textContent = `#hero::before{ background-image: var(--bg); background-position: var(--bg-pos); animation: hero-kenburns 22s ease-in-out infinite; transform-origin: var(--kb-origin, 50% 50%);} @keyframes hero-kenburns{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}`;
   document.head.appendChild(style);
 
   set(true);
-  setInterval(()=>set(false), 6000);
+  setInterval(()=>set(false), 6500);
 })();
 
-/* Lightbox using Poptrox (if available) */
 (function(){
   const galleries = [qs('.gallery .grid'), qs('#collections-grid')].filter(Boolean);
   if(!galleries.length || !window.jQuery || !jQuery.fn.poptrox) return;
   galleries.forEach(gallery=>{
     jQuery(gallery).poptrox({
       overlayColor: '#000',
-      overlayOpacity: 0.85,
+      overlayOpacity: 0.8,
       usePopupCaption: true,
       caption: function($a){
         try {
@@ -64,7 +60,6 @@ qs('#year') && (qs('#year').textContent = new Date().getFullYear());
   });
 })();
 
-/* Smooth anchors */
 qsa('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', (e)=>{
     const id = a.getAttribute('href').slice(1);
@@ -75,7 +70,6 @@ qsa('a[href^="#"]').forEach(a=>{
   });
 });
 
-/* Collections filtering */
 (function(){
   const grid = document.getElementById('collections-grid');
   if(!grid) return;

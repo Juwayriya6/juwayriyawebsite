@@ -1,1 +1,1 @@
-// placeholder: replace with real util.js to enable extras
+// placeholder: replace with real util.js to enable lightbox & effects
