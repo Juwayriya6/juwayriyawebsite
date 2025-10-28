@@ -76,4 +76,47 @@ qsa('a[href^="#"]').forEach(a=>{
     e.preventDefault();
     el.scrollIntoView({behavior:'smooth', block:'start'});
   });
-});
+});/* Collections filtering (chips) + lightbox on collections page */
+(function(){
+  const grid = document.getElementById('collections-grid');
+  if(!grid) return;
+
+  // Lightbox
+  if(window.jQuery && jQuery.fn.poptrox){
+    jQuery(grid).poptrox({
+      overlayColor:'#000', overlayOpacity:0.85, usePopupCaption:true,
+      caption: function($a){
+        try{
+          const meta = JSON.parse($a.attr('data-caption') || '{}');
+          const title = meta.title ? `<strong>${meta.title}</strong>` : '';
+          const text  = meta.text  ? `<div>${meta.text}</div>` : '';
+          return `${title}${text}`;
+        }catch(e){ return ''; }
+      }
+    });
+  }
+
+  // Filters
+  const chips = [...document.querySelectorAll('.filters .chip')];
+  const items = [...grid.querySelectorAll('li')];
+
+  function apply(filter){
+    items.forEach(li=>{
+      const match = filter==='all' || li.dataset.collection===filter;
+      li.classList.toggle('hidden', !match);
+    });
+    chips.forEach(c=>c.classList.toggle('is-active', c.dataset.filter===filter));
+  }
+
+  chips.forEach(c=>{
+    c.addEventListener('click', ()=>{
+      const f = c.dataset.filter || 'all';
+      history.replaceState(null, '', f==='all' ? location.pathname : `#${f}`);
+      apply(f);
+    });
+  });
+
+  // Deep link via hash (e.g., collections.html#astronomy)
+  const start = location.hash.replace('#','') || 'all';
+  apply(start);
+})();
