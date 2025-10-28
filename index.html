@@ -1,107 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Juwayriya Abdullahi | Fine Artist Portfolio" />
-  <meta name="author" content="Juwayriya Abdullahi" />
-  <title>Juwayriya Art</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juwayriya Art — Dreamlike Surrealism</title>
+  <meta name="description" content="Dreamy, surreal paintings by Juwayriya Abdullahi — mythology, memory, gem-toned palettes, and luminous textures." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
+<body class="is-preload">
 
-  <!-- Banner -->
-  <header id="banner">
-    <img src="assets/images/art7-banner.png" alt="Juwayriya Art Banner" loading="lazy">
+  <!-- Noise/Stars visual layer -->
+  <div class="grain"></div>
+
+  <!-- Header / Hero (full screen, rotating backgrounds) -->
+  <header id="hero" class="section hero"
+          data-slides='[
+            {"src":"assets/images/hero-1.webp","pos":"center center"},
+            {"src":"assets/images/hero-2.webp","pos":"center 40%"},
+            {"src":"assets/images/hero-3.webp","pos":"center center"}
+          ]'>
+    <div class="hero__overlay"></div>
+    <div class="hero__inner">
+      <h1 class="logo">Juwayriya <span>Art</span></h1>
+      <p class="tag">surrealism • mythology • gem-tone dreams</p>
+      <nav class="navdots" aria-label="slideshow dots"></nav>
+      <a href="#gallery" class="cta">Enter</a>
+    </div>
   </header>
 
-  <!-- Gallery -->
-  <main class="gallery container">
+  <!-- About -->
+  <section id="about" class="section about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>
+        I create dreamy, surreal paintings weaving East African patterns, myth, and memory into prairie light.
+        Texture, gold-leaf glints, and quiet symbolism invite viewers to linger.
+      </p>
+    </div>
+  </section>
 
-    <picture>
-      <source srcset="assets/images/art1-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art1.webp" media="(min-width: 769px)">
-      <img src="assets/images/art1.png" alt="Artwork 1" loading="lazy">
-    </picture>
+  <!-- Gallery (lightbox like Chroma Botanica) -->
+  <section id="gallery" class="section gallery">
+    <div class="wrap">
+      <h2>Works</h2>
+      <ul class="grid">
+        <!-- Repeat items; update src, title, caption -->
+        <li>
+          <a href="assets/images/art1.webp"
+             class="thumb"
+             data-caption='{"title":"Prairie Constellations","text":"Oil on canvas, 24×30"}'>
+            <img src="assets/images/art1.webp" alt="Prairie Constellations" loading="lazy" />
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/art2.webp"
+             class="thumb"
+             data-caption='{"title":"Ancestral Echo","text":"Oil on canvas, 30×40"}'>
+            <img src="assets/images/art2.webp" alt="Ancestral Echo" loading="lazy" />
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/art3.webp"
+             class="thumb"
+             data-caption='{"title":"Myth in Wheat","text":"Oil on canvas, 18×24"}'>
+            <img src="assets/images/art3.webp" alt="Myth in Wheat" loading="lazy" />
+          </a>
+        </li>
+        <!-- etc. -->
+      </ul>
+    </div>
+  </section>
 
-    <picture>
-      <source srcset="assets/images/art2-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art2.webp" media="(min-width: 769px)">
-      <img src="assets/images/art2.png" alt="Artwork 2" loading="lazy">
-    </picture>
+  <!-- Statement (glassy panel vibe from Sirendema) -->
+  <section id="statement" class="section statement">
+    <div class="wrap panel">
+      <h2>Artist Statement</h2>
+      <p>
+        My work explores how stories survive erasure—through textile geometry, celestial mapping,
+        and symbols that slip between worlds. Surreal, but grounded in lived histories.
+      </p>
+    </div>
+  </section>
 
-    <picture>
-      <source srcset="assets/images/art3-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art3.webp" media="(min-width: 769px)">
-      <img src="assets/images/art3.png" alt="Artwork 3" loading="lazy">
-    </picture>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
+      <ul class="socials">
+        <li><a href="https://instagram.com/juwayriya.art" aria-label="Instagram">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/juwayriya" aria-label="LinkedIn">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
 
-    <picture>
-      <source srcset="assets/images/art4-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art4.webp" media="(min-width: 769px)">
-      <img src="assets/images/art4.png" alt="Artwork 4" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art5-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art5.webp" media="(min-width: 769px)">
-      <img src="assets/images/art5.png" alt="Artwork 5" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art6-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art6.webp" media="(min-width: 769px)">
-      <img src="assets/images/art6.png" alt="Artwork 6" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art8-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art8.webp" media="(min-width: 769px)">
-      <img src="assets/images/art8.png" alt="Artwork 8" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art9-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art9.webp" media="(min-width: 769px)">
-      <img src="assets/images/art9.png" alt="Artwork 9" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art10-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art10.webp" media="(min-width: 769px)">
-      <img src="assets/images/art10.png" alt="Artwork 10" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art11-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art11.webp" media="(min-width: 769px)">
-      <img src="assets/images/art11.jpg" alt="Artwork 11" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art13-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art13.webp" media="(min-width: 769px)">
-      <img src="assets/images/art13.png" alt="Artwork 13" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art14-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art14.webp" media="(min-width: 769px)">
-      <img src="assets/images/art14.png" alt="Artwork 14" loading="lazy">
-    </picture>
-
-    <picture>
-      <source srcset="assets/images/art15-small.webp" media="(max-width: 768px)">
-      <source srcset="assets/images/art15.webp" media="(min-width: 769px)">
-      <img src="assets/images/art15.png" alt="Artwork 15" loading="lazy">
-    </picture>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Juwayriya Abdullahi. All rights reserved.</p>
+  <footer class="section footer">
+    <div class="wrap small">
+      <p>© <span id="year"></span> Juwayriya Abdullahi. Built on a lightweight HTML/CSS/JS stack with gallery lightbox + smooth scrolling.</p>
+      <p class="credit">
+        Design inspired by
+        <a href="https://html5up.net" rel="nofollow">HTML5 UP</a>
+        (CC BY 3.0) and open-source examples referenced below.
+      </p>
+    </div>
   </footer>
 
+  <!-- Scripts (order matters) -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/poptrox.min.js"></script>
+  <script src="assets/js/scrollex.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
