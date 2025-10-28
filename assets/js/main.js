@@ -1,8 +1,11 @@
+/* Helpers */
 const qs = (s, el=document)=>el.querySelector(s);
 const qsa = (s, el=document)=>[...el.querySelectorAll(s)];
 
+/* Year */
 qs('#year') && (qs('#year').textContent = new Date().getFullYear());
 
+/* Hero slideshow (gentle) */
 (function(){
   const hero = qs('#hero');
   if(!hero) return;
@@ -29,17 +32,17 @@ qs('#year') && (qs('#year').textContent = new Date().getFullYear());
     if (cap) cap.textContent = s.title || '';
     qsa('.navdots button').forEach((b,idx)=> b.setAttribute('aria-current', idx===i ? 'true':'false'));
     if(!jump) i = (i+1) % slides.length;
-    hero.style.setProperty('--kb-origin', i % 2 ? '40% 60%' : '60% 40%');
   }
 
   const style = document.createElement('style');
-  style.textContent = `#hero::before{ background-image: var(--bg); background-position: var(--bg-pos); animation: hero-kenburns 22s ease-in-out infinite; transform-origin: var(--kb-origin, 50% 50%);} @keyframes hero-kenburns{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}`;
+  style.textContent = `#hero::before{ background-image: var(--bg); background-position: var(--bg-pos); animation: hero-kenburns 22s ease-in-out infinite; transform-origin: 50% 50%;} @keyframes hero-kenburns{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}`;
   document.head.appendChild(style);
 
   set(true);
   setInterval(()=>set(false), 6500);
 })();
 
+/* Lightbox if vendor included */
 (function(){
   const galleries = [qs('.gallery .grid'), qs('#collections-grid')].filter(Boolean);
   if(!galleries.length || !window.jQuery || !jQuery.fn.poptrox) return;
@@ -60,6 +63,7 @@ qs('#year') && (qs('#year').textContent = new Date().getFullYear());
   });
 })();
 
+/* Smooth anchors */
 qsa('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', (e)=>{
     const id = a.getAttribute('href').slice(1);
@@ -70,6 +74,7 @@ qsa('a[href^="#"]').forEach(a=>{
   });
 });
 
+/* Collections filter chips */
 (function(){
   const grid = document.getElementById('collections-grid');
   if(!grid) return;

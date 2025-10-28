@@ -1,12 +1,11 @@
 :root{
   --paper: #f7fbf9;
-  --ink: #1e2924;          /* deep evergreen text */
-  --muted: #4c6b5f;        /* soft moss */
-  --jade: #8bd3c7;         /* main jade */
-  --mint: #cfeee5;         /* airy mint wash */
-  --sky: #d8eef8;          /* pale sky */
-  --pearl: #f5efe8;        /* warm paper tint */
-  --lilac: #e9e2fb;        /* faint lilac edge */
+  --ink: #1e2924;
+  --muted: #4c6b5f;
+  --jade: #8bd3c7;
+  --mint: #cfeee5;
+  --sky: #d8eef8;
+  --pearl: #f5efe8;
   --glass: rgba(255,255,255,.65);
   --glass-stroke: rgba(30,41,36,.14);
 }
@@ -16,7 +15,7 @@
 html,body{height:100%}
 body{
   margin:0; background:
-    radial-gradient(1200px 800px at 20% 10%, var(--sky) 0, var(--mint) 50%, var(--pearl) 100%);
+    radial-gradient(1200px 800px at 20% 10%, var(--sky) 0, var(--mint) 52%, var(--pearl) 100%);
   color:var(--ink); font-family:Nunito, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   line-height:1.7; overflow-x:hidden;
 }
@@ -29,14 +28,14 @@ a:hover{opacity:.9}
 .wrap{width:min(1100px, 90%); margin:0 auto}
 .small{font-size:.9rem; color:#5a7d70}
 
-/* Mist layer (Monet morning fog) */
+/* Monet morning fog */
 .mist{position:fixed; inset:-10% -10% -20% -10%; pointer-events:none; z-index:1;
   background: radial-gradient(60% 40% at 30% 20%, rgba(255,255,255,.65), transparent 60%),
               radial-gradient(50% 40% at 70% 60%, rgba(255,255,255,.5), transparent 60%);
   filter: blur(30px); animation: drift 30s ease-in-out infinite alternate}
 @keyframes drift{0%{transform:translate3d(-2%,0,0)}100%{transform:translate3d(2%,1%,0)}}
 
-/* Falling petals (xianxia vibe) */
+/* Falling petals */
 .petals{position:fixed; inset:0; pointer-events:none; z-index:2}
 .petals::before,.petals::after{
   content:""; position:absolute; inset:0;
@@ -49,16 +48,17 @@ a:hover{opacity:.9}
 .petals::after{animation-duration: 20s; opacity:.6}
 @keyframes petals{to{transform:translateY(110vh)}}
 
-/* Hero (lighter overlay) */
+/* Hero (light overlay & brightened image) */
 .hero{min-height:100svh; display:grid; place-items:center; text-align:center; overflow:hidden; position:relative}
-.hero::before{content:""; position:absolute; inset:0; background-size:cover; background-position:center}
+.hero::before{content:""; position:absolute; inset:0; background-size:cover; background-position:center;
+  filter: brightness(1.18) contrast(0.95) saturate(1.04)}
 .hero__overlay{position:absolute; inset:0; background:
-  radial-gradient(65% 60% at 50% 50%, rgba(255,255,255,.55) 0%, rgba(255,255,255,.25) 60%, rgba(255,255,255,.15) 100%),
-  linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.2));
+  radial-gradient(68% 62% at 50% 50%, rgba(255,255,255,.72) 0%, rgba(255,255,255,.38) 60%, rgba(255,255,255,.22) 100%),
+  linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.30));
   z-index:2}
 .hero__overlay.light{background:
-  radial-gradient(65% 60% at 50% 50%, rgba(255,255,255,.65) 0%, rgba(255,255,255,.35) 60%, rgba(255,255,255,.2) 100%),
-  linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.25))}
+  radial-gradient(68% 62% at 50% 50%, rgba(255,255,255,.72) 0%, rgba(255,255,255,.40) 60%, rgba(255,255,255,.24) 100%),
+  linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.35))}
 .hero__inner{position:relative; z-index:3; display:flex; flex-direction:column; align-items:center}
 .logo{font-size:clamp(2.2rem,5vw,4.2rem); letter-spacing:.02em}
 .logo span{background:linear-gradient(45deg, #2e8b7d, #6cc9bb, #f6d7b6);
@@ -78,8 +78,8 @@ a:hover{opacity:.9}
 
 /* Panels */
 .panel{backdrop-filter: blur(12px); background:var(--glass); border:1px solid var(--glass-stroke);
-  padding:2rem; border-radius:18px; box-shadow: 0 10px 30px rgba(30,41,36,.08)}
-.panel.soft{background:rgba(255,255,255,.72)}
+  padding:2rem; border-radius:18px; box-shadow: 0 10px 28px rgba(30,41,36,.06)}
+.panel.soft{background:rgba(255,255,255,.78)}
 
 .about .wrap p{max-width:65ch}
 
@@ -121,3 +121,6 @@ a:hover{opacity:.9}
 /* Hidden */
 .hidden{display:none !important}
 .collections .grid{grid-template-columns:repeat(auto-fit, minmax(240px,1fr))}
+
+/* ===== LIGHT JADE OVERRIDES (force Monet/xianxia vibe) ===== */
+.grain, .sparkles, .aurora { display: none !important; } /* ensure old dark layers are off */
