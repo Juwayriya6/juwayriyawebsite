@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Juwayriya Art — Dreamlike Surrealism</title>
-  <meta name="description" content="Dreamy, surreal paintings by Juwayriya Abdullahi — mythology, memory, gem-toned palettes, and luminous textures." />
+  <meta name="description" content="Dreamy, surreal paintings by Juwayriya Abdullahi — mythology, memory, gem-toned palettes, and luminous textures. Edmonton / St. Albert, Alberta." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,66 +18,69 @@
   <!-- Noise/Stars visual layer -->
   <div class="grain"></div>
 
-  <!-- Header / Hero (full screen, rotating backgrounds) -->
+  <!-- Header / Hero (full screen, rotating your paintings) -->
   <header id="hero" class="section hero"
           data-slides='[
-            {"src":"assets/images/hero-1.webp","pos":"center center"},
-            {"src":"assets/images/hero-2.webp","pos":"center 40%"},
-            {"src":"assets/images/hero-3.webp","pos":"center center"}
+            {"src":"assets/images/hero-1.webp","pos":"center 55%","title":"Prairie Constellations"},
+            {"src":"assets/images/hero-2.webp","pos":"center center","title":"Ancestral Echo"},
+            {"src":"assets/images/hero-3.webp","pos":"center 40%","title":"Myth in Wheat"}
           ]'>
     <div class="hero__overlay"></div>
     <div class="hero__inner">
-      <h1 class="logo">Juwayriya <span>Art</span></h1>
-      <p class="tag">surrealism • mythology • gem-tone dreams</p>
+      <h1 class="logo"><a class="logo__link" href="index.html">Juwayriya <span>Art</span></a></h1>
+      <p class="tag">surrealism • mythology • gem‑tone dreams</p>
+      <nav class="navlinks">
+        <a href="#gallery">Work</a>
+        <a href="collections.html">Collections</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <nav class="navdots" aria-label="slideshow dots"></nav>
       <a href="#gallery" class="cta">Enter</a>
+      <div id="hero-caption" class="hero__caption" aria-live="polite"></div>
     </div>
   </header>
 
-  <!-- About -->
+  <!-- About teaser -->
   <section id="about" class="section about">
     <div class="wrap">
       <h2>About</h2>
       <p>
         I create dreamy, surreal paintings weaving East African patterns, myth, and memory into prairie light.
-        Texture, gold-leaf glints, and quiet symbolism invite viewers to linger.
+        Texture, gold‑leaf glints, and quiet symbolism invite viewers to linger.
       </p>
+      <p><a class="arrow" href="about.html">Read full bio →</a></p>
     </div>
   </section>
 
-  <!-- Gallery (lightbox like Chroma Botanica) -->
+  <!-- Gallery (lightbox, like Chroma Botanica) -->
   <section id="gallery" class="section gallery">
     <div class="wrap">
       <h2>Works</h2>
       <ul class="grid">
-        <!-- Repeat items; update src, title, caption -->
         <li>
-          <a href="assets/images/art1.webp"
-             class="thumb"
+          <a href="assets/images/art1.webp" class="thumb"
              data-caption='{"title":"Prairie Constellations","text":"Oil on canvas, 24×30"}'>
-            <img src="assets/images/art1.webp" alt="Prairie Constellations" loading="lazy" />
+            <img src="assets/images/art1.webp" alt="Surreal oil painting: star‑mapped prairie with textile geometry" loading="lazy" />
           </a>
         </li>
         <li>
-          <a href="assets/images/art2.webp"
-             class="thumb"
+          <a href="assets/images/art2.webp" class="thumb"
              data-caption='{"title":"Ancestral Echo","text":"Oil on canvas, 30×40"}'>
-            <img src="assets/images/art2.webp" alt="Ancestral Echo" loading="lazy" />
+            <img src="assets/images/art2.webp" alt="Surreal portrait dissolving into ancestral motifs" loading="lazy" />
           </a>
         </li>
         <li>
-          <a href="assets/images/art3.webp"
-             class="thumb"
+          <a href="assets/images/art3.webp" class="thumb"
              data-caption='{"title":"Myth in Wheat","text":"Oil on canvas, 18×24"}'>
-            <img src="assets/images/art3.webp" alt="Myth in Wheat" loading="lazy" />
+            <img src="assets/images/art3.webp" alt="Wheat field layered with East African pattern and symbols" loading="lazy" />
           </a>
         </li>
-        <!-- etc. -->
       </ul>
     </div>
   </section>
 
-  <!-- Statement (glassy panel vibe from Sirendema) -->
+  <!-- Statement (glassy panel vibe) -->
   <section id="statement" class="section statement">
     <div class="wrap panel">
       <h2>Artist Statement</h2>
@@ -92,7 +95,7 @@
   <section id="contact" class="section contact">
     <div class="wrap">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
+      <p id="contact-email">Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
       <ul class="socials">
         <li><a href="https://instagram.com/juwayriya.art" aria-label="Instagram">Instagram</a></li>
         <li><a href="https://www.linkedin.com/in/juwayriya" aria-label="LinkedIn">LinkedIn</a></li>
@@ -102,16 +105,14 @@
 
   <footer class="section footer">
     <div class="wrap small">
-      <p>© <span id="year"></span> Juwayriya Abdullahi. Built on a lightweight HTML/CSS/JS stack with gallery lightbox + smooth scrolling.</p>
+      <p>© <span id="year"></span> Juwayriya Abdullahi — Edmonton / St. Albert, Alberta, Canada.</p>
       <p class="credit">
-        Design inspired by
-        <a href="https://html5up.net" rel="nofollow">HTML5 UP</a>
-        (CC BY 3.0) and open-source examples referenced below.
+        Design inspired by HTML5 UP (CC BY 3.0). Gallery/lightbox styling echoes open‑source artist templates.
       </p>
     </div>
   </footer>
 
-  <!-- Scripts (order matters) -->
+  <!-- Scripts (order matters if vendor libs are present) -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/poptrox.min.js"></script>
   <script src="assets/js/scrollex.min.js"></script>

@@ -1,30 +1,25 @@
-Phantom by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+JUWAYRIYA WEBSITE — REWRITE DROP-IN
+====================================
 
+Files included
+--------------
+- index.html
+- about.html
+- collections.html
+- assets/css/main.css
+- assets/js/main.js
+- assets/js/{jquery.min.js, poptrox.min.js, scrollex.min.js, breakpoints.min.js, util.js} (placeholders)
 
-This is Phantom, a simple design built around a grid of large, colorful, semi-interactive
-image tiles (of which you can have as many or as few as you like). Makes use of some
-SVG and animation techniques I've been experimenting with on that other project of mine
-you may have heard about (https://carrd.co), and includes a handy generic page for whatever.
+What to do
+----------
+1) Replace your repo files with these.
+2) Move your chosen hero paintings to assets/images/ as hero-1.webp, hero-2.webp, hero-3.webp.
+3) Replace the sample gallery images (assets/images/art1.webp, art2.webp, etc.) with your actual files.
+4) For lightbox popups, replace the placeholder vendor JS with the real files (from your current HTML5 UP Phantom assets).
+   - If you skip this, the site still works, just without the popup overlay.
+5) Keep HTML5 UP credit (CC BY 3.0) in your footer to satisfy the Phantom license lineage.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+SEO tips
+--------
+- Update <title> and <meta name="description"> to include your name + Edmonton / St. Albert.
+- Use descriptive alt text for each <img>.
