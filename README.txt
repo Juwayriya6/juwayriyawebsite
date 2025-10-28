@@ -1,21 +1,32 @@
-WHIMSICAL SITE — JUWAYRIYA ART
-=================================
-Drop these files into your GitHub repo (juwayriyawebsite). Keep this structure:
+HOW TO CONVERT JPG -> WEBP (Terminal, macOS/Homebrew)
+====================================================
+1) Install the Google WebP tools:
+   brew install webp
 
-/
-├─ index.html
-├─ about.html
-├─ collections.html
-└─ assets/
-   ├─ css/main.css
-   ├─ js/main.js (+ vendor JS placeholders)
-   └─ images/ (replace the .webp placeholders with your real artworks)
+2) Put your original JPG here:
+   assets/images/hero.jpg   (or change paths below)
 
-Notes
------
-- Hero images: assets/images/hero-1.webp … hero-3.webp
-- Gallery: assets/images/art1.webp … artN.webp
-- For the lightbox overlay, replace the JS placeholders with your real copies of jquery.min.js and poptrox.min.js (and helpers).
-- Keep the footer credit to satisfy HTML5 UP CC-BY lineage if you reuse pieces of Phantom.
+3) Run these commands from your project folder:
 
-Created 2025.
+   # Create 3 sizes (720, 960, 1200 on long edge) and convert to WebP
+   cwebp -q 80 -resize 720 0  assets/images/hero.jpg -o assets/images/hero-720.webp
+   cwebp -q 80 -resize 960 0  assets/images/hero.jpg -o assets/images/hero-960.webp
+   cwebp -q 80 -resize 1200 0 assets/images/hero.jpg -o assets/images/hero-1200.webp
+
+   # (Optional) if your image is portrait and you prefer setting height:
+   # cwebp -q 80 -resize 0 960  assets/images/hero.jpg -o assets/images/hero-720.webp
+   # cwebp -q 80 -resize 0 1280 assets/images/hero.jpg -o assets/images/hero-960.webp
+   # cwebp -q 80 -resize 0 1600 assets/images/hero.jpg -o assets/images/hero-1200.webp
+
+4) Reload your site. index.html already references:
+   hero-720.webp, hero-960.webp, hero-1200.webp via srcset.
+
+Advanced (ImageMagick alternative):
+   brew install imagemagick
+   magick assets/images/hero.jpg -resize 1200x1600 -strip -quality 82 assets/images/hero-1200.webp
+   magick assets/images/hero.jpg -resize 960x1280  -strip -quality 80 assets/images/hero-960.webp
+   magick assets/images/hero.jpg -resize 720x960   -strip -quality 78 assets/images/hero-720.webp
+
+Tips:
+- Start at -q 80; if gradients band, try -q 82 or add a tiny noise layer before export.
+- Keep the composition within the central area; the card renders ~420px wide on desktop.

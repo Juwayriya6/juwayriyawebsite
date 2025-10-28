@@ -3,110 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juwayriya Art — Jade Morning</title>
-  <meta name="description" content="Airy jade / Monet morning surrealism by Juwayriya Abdullahi — mythology, memory, soft palettes. Edmonton / St. Albert." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Nunito:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <title>juwayriya</title>
+  <meta name="description" content="Portfolio of Juwayriya — surreal, dreamy paintings in jade light." />
+  <link rel="preload" as="font" href="assets/fonts/SirensDEMO.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="light">
-  <!-- Light-only layers -->
-  <div class="mist" aria-hidden="true"></div>
-  <div class="petals" aria-hidden="true"></div>
-
-  <!-- Hero with your artwork -->
-  <header id="hero" class="section hero"
-    data-slides='[
-      {"src":"assets/images/hero-1.webp","pos":"center 55%","title":"Lotus Constellations"},
-      {"src":"assets/images/hero-2.webp","pos":"center center","title":"Jade Echo"},
-      {"src":"assets/images/hero-3.webp","pos":"center 40%","title":"Wheat in Morning Fog"}
-    ]'>
-    <div class="hero__overlay light"></div>
-    <div class="hero__inner">
-      <h1 class="logo"><span class="script">Juwayriya</span> <span>Art</span></h1>
-      <p class="tag">surrealism • mythology • jade‑tone dreams</p>
-      <nav class="navlinks">
-        <a href="#gallery">Work</a>
-        <a href="collections.html">Collections</a>
-        <a href="about.html">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <nav class="navdots" aria-label="slideshow dots"></nav>
-      <a href="#gallery" class="cta">Enter</a>
-      <div id="hero-caption" class="hero__caption" aria-live="polite"></div>
-    </div>
-  </header>
-
-  <section id="about" class="section about">
-    <div class="wrap panel soft">
-      <h2>About</h2>
-      <p>
-        I paint dreamscapes where jade fog meets prairie light. Textile motifs and quiet astronomy
-        drift together like silk in water—soft, meditative, and a little otherworldly.
-      </p>
-      <p><a class="arrow" href="about.html">Read full bio →</a></p>
-    </div>
-  </section>
-
-  <section id="gallery" class="section gallery">
-    <div class="wrap">
-      <h2>Works</h2>
-      <ul class="grid">
-        <li>
-          <a href="assets/images/art1.webp" class="thumb"
-             data-caption='{"title":"Lotus Constellations","text":"Oil on canvas, 24×30"}'>
-            <img src="assets/images/art1.webp" alt="Soft jade and sky tones with lotus motifs and star glyphs" loading="lazy" />
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/art2.webp" class="thumb"
-             data-caption='{"title":"Jade Echo","text":"Oil on canvas, 30×40"}'>
-            <img src="assets/images/art2.webp" alt="Portrait in jade and pearl haze with floating threads" loading="lazy" />
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/art3.webp" class="thumb"
-             data-caption='{"title":"Wheat in Morning Fog","text":"Oil on canvas, 18×24"}'>
-            <img src="assets/images/art3.webp" alt="Pale prairie washed in mint mist like a Monet morning" loading="lazy" />
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="statement" class="section statement">
-    <div class="wrap panel soft">
-      <h2>Artist Statement</h2>
-      <p>
-        I’m interested in tenderness: memory patterns, river‑green light, and the hush between worlds.
-        The palette leans jade, mist, and pearl—surrealism that floats.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" class="section contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <p id="contact-email">Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
-      <ul class="socials">
-        <li><a href="https://instagram.com/juwayriya.art" aria-label="Instagram">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/juwayriya" aria-label="LinkedIn">LinkedIn</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="section footer">
-    <div class="wrap small">
-      <p>© <span id="year"></span> Juwayriya Abdullahi — Edmonton / St. Albert, Alberta, Canada.</p>
-      <p class="credit">Design inspired by HTML5 UP (CC BY 3.0). Monet‑soft x Xianxia‑jade theme.</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/poptrox.min.js"></script>
-  <script src="assets/js/scrollex.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
+<body>
+  <main class="wrap">
+    <figure class="card">
+      <img
+        src="assets/images/hero-960.webp"
+        srcset="
+          assets/images/hero-720.webp 720w,
+          assets/images/hero-960.webp 960w,
+          assets/images/hero-1200.webp 1200w"
+        sizes="(max-width: 640px) 70vw, (max-width: 1200px) 42vw, 420px"
+        alt="Your hero artwork"
+        width="960" height="1280" loading="eager" fetchpriority="high" />
+    </figure>
+    <h1 class="brand" aria-label="juwayriya">
+      <span>juwayriya</span>
+    </h1>
+    <a class="enter" href="#gallery">enter</a>
+  </main>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
