@@ -3,32 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juwayriya Art — Dreamlike Surrealism</title>
-  <meta name="description" content="Dreamy, surreal paintings by Juwayriya Abdullahi — mythology, memory, gem-toned palettes, and luminous textures. Edmonton / St. Albert, Alberta." />
-
-  <!-- Fonts -->
+  <title>Juwayriya Art — Whimsical Surrealism</title>
+  <meta name="description" content="Whimsical, dreamlike surrealism by Juwayriya Abdullahi — mythology, memory, gem-tone palettes. Edmonton / St. Albert, Alberta." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body class="is-preload">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="sparkles" aria-hidden="true"></div>
 
-  <!-- Noise/Stars visual layer -->
-  <div class="grain"></div>
-
-  <!-- Header / Hero (full screen, rotating your paintings) -->
   <header id="hero" class="section hero"
-          data-slides='[
-            {"src":"assets/images/hero-1.webp","pos":"center 55%","title":"Prairie Constellations"},
-            {"src":"assets/images/hero-2.webp","pos":"center center","title":"Ancestral Echo"},
-            {"src":"assets/images/hero-3.webp","pos":"center 40%","title":"Myth in Wheat"}
-          ]'>
+    data-slides='[
+      {"src":"assets/images/hero-1.webp","pos":"center 55%","title":"Prairie Constellations"},
+      {"src":"assets/images/hero-2.webp","pos":"center center","title":"Ancestral Echo"},
+      {"src":"assets/images/hero-3.webp","pos":"center 40%","title":"Myth in Wheat"}
+    ]'>
     <div class="hero__overlay"></div>
     <div class="hero__inner">
-      <h1 class="logo"><a class="logo__link" href="index.html">Juwayriya <span>Art</span></a></h1>
-      <p class="tag">surrealism • mythology • gem‑tone dreams</p>
+      <h1 class="logo"><span class="script">Juwayriya</span> <span>Art</span></h1>
+      <p class="tag">surrealism • mythology • gem-tone dreams</p>
       <nav class="navlinks">
         <a href="#gallery">Work</a>
         <a href="collections.html">Collections</a>
@@ -38,22 +33,22 @@
       <nav class="navdots" aria-label="slideshow dots"></nav>
       <a href="#gallery" class="cta">Enter</a>
       <div id="hero-caption" class="hero__caption" aria-live="polite"></div>
+      <div class="floating-orb orb-a" aria-hidden="true"></div>
+      <div class="floating-orb orb-b" aria-hidden="true"></div>
     </div>
   </header>
 
-  <!-- About teaser -->
   <section id="about" class="section about">
-    <div class="wrap">
+    <div class="wrap panel">
       <h2>About</h2>
       <p>
-        I create dreamy, surreal paintings weaving East African patterns, myth, and memory into prairie light.
-        Texture, gold‑leaf glints, and quiet symbolism invite viewers to linger.
+        I paint worlds where memory wears patterns and stars keep notes. My work threads East African textiles,
+        myth, and prairie light into soft surreal scenes with glints of gold and whispers of constellations.
       </p>
       <p><a class="arrow" href="about.html">Read full bio →</a></p>
     </div>
   </section>
 
-  <!-- Gallery (lightbox, like Chroma Botanica) -->
   <section id="gallery" class="section gallery">
     <div class="wrap">
       <h2>Works</h2>
@@ -61,26 +56,25 @@
         <li>
           <a href="assets/images/art1.webp" class="thumb"
              data-caption='{"title":"Prairie Constellations","text":"Oil on canvas, 24×30"}'>
-            <img src="assets/images/art1.webp" alt="Surreal oil painting: star‑mapped prairie with textile geometry" loading="lazy" />
+            <img src="assets/images/art1.webp" alt="Surreal prairie mapped with star glyphs and textile geometry" loading="lazy" />
           </a>
         </li>
         <li>
           <a href="assets/images/art2.webp" class="thumb"
              data-caption='{"title":"Ancestral Echo","text":"Oil on canvas, 30×40"}'>
-            <img src="assets/images/art2.webp" alt="Surreal portrait dissolving into ancestral motifs" loading="lazy" />
+            <img src="assets/images/art2.webp" alt="Portrait dissolving into ancestral motifs and constellations" loading="lazy" />
           </a>
         </li>
         <li>
           <a href="assets/images/art3.webp" class="thumb"
              data-caption='{"title":"Myth in Wheat","text":"Oil on canvas, 18×24"}'>
-            <img src="assets/images/art3.webp" alt="Wheat field layered with East African pattern and symbols" loading="lazy" />
+            <img src="assets/images/art3.webp" alt="Wheat field layered with East African patterns and symbols" loading="lazy" />
           </a>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- Statement (glassy panel vibe) -->
   <section id="statement" class="section statement">
     <div class="wrap panel">
       <h2>Artist Statement</h2>
@@ -91,7 +85,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="section contact">
     <div class="wrap">
       <h2>Contact</h2>
@@ -106,13 +99,10 @@
   <footer class="section footer">
     <div class="wrap small">
       <p>© <span id="year"></span> Juwayriya Abdullahi — Edmonton / St. Albert, Alberta, Canada.</p>
-      <p class="credit">
-        Design inspired by HTML5 UP (CC BY 3.0). Gallery/lightbox styling echoes open‑source artist templates.
-      </p>
+      <p class="credit">Design inspired by HTML5 UP (CC BY 3.0). Lightbox-ready gallery. Whimsical theme.</p>
     </div>
   </footer>
 
-  <!-- Scripts (order matters if vendor libs are present) -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/poptrox.min.js"></script>
   <script src="assets/js/scrollex.min.js"></script>

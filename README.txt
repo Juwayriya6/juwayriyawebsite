@@ -1,25 +1,21 @@
-JUWAYRIYA WEBSITE — REWRITE DROP-IN
-====================================
+WHIMSICAL SITE — JUWAYRIYA ART
+=================================
+Drop these files into your GitHub repo (juwayriyawebsite). Keep this structure:
 
-Files included
---------------
-- index.html
-- about.html
-- collections.html
-- assets/css/main.css
-- assets/js/main.js
-- assets/js/{jquery.min.js, poptrox.min.js, scrollex.min.js, breakpoints.min.js, util.js} (placeholders)
+/
+├─ index.html
+├─ about.html
+├─ collections.html
+└─ assets/
+   ├─ css/main.css
+   ├─ js/main.js (+ vendor JS placeholders)
+   └─ images/ (replace the .webp placeholders with your real artworks)
 
-What to do
-----------
-1) Replace your repo files with these.
-2) Move your chosen hero paintings to assets/images/ as hero-1.webp, hero-2.webp, hero-3.webp.
-3) Replace the sample gallery images (assets/images/art1.webp, art2.webp, etc.) with your actual files.
-4) For lightbox popups, replace the placeholder vendor JS with the real files (from your current HTML5 UP Phantom assets).
-   - If you skip this, the site still works, just without the popup overlay.
-5) Keep HTML5 UP credit (CC BY 3.0) in your footer to satisfy the Phantom license lineage.
+Notes
+-----
+- Hero images: assets/images/hero-1.webp … hero-3.webp
+- Gallery: assets/images/art1.webp … artN.webp
+- For the lightbox overlay, replace the JS placeholders with your real copies of jquery.min.js and poptrox.min.js (and helpers).
+- Keep the footer credit to satisfy HTML5 UP CC-BY lineage if you reuse pieces of Phantom.
 
-SEO tips
---------
-- Update <title> and <meta name="description"> to include your name + Edmonton / St. Albert.
-- Use descriptive alt text for each <img>.
+Created 2025.

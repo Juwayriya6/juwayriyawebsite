@@ -1,15 +1,14 @@
-/* Tiny helper utilities */
+/* Helpers */
 const qs = (s, el=document)=>el.querySelector(s);
 const qsa = (s, el=document)=>[...el.querySelectorAll(s)];
 
-/* Year stamp */
+/* Year */
 qs('#year') && (qs('#year').textContent = new Date().getFullYear());
 
-/* Hero slideshow */
+/* Hero slideshow with Ken Burns */
 (function(){
   const hero = qs('#hero');
   if(!hero) return;
-
   const slides = JSON.parse(hero.getAttribute('data-slides') || '[]');
   if(!slides.length) return;
 
@@ -33,7 +32,6 @@ qs('#year') && (qs('#year').textContent = new Date().getFullYear());
     if (cap) cap.textContent = s.title || '';
     qsa('.navdots button').forEach((b,idx)=> b.setAttribute('aria-current', idx===i ? 'true':'false'));
     if(!jump) i = (i+1) % slides.length;
-    // optional Ken Burns origin variation
     hero.style.setProperty('--kb-origin', i % 2 ? '40% 60%' : '60% 40%');
   }
 
@@ -77,11 +75,10 @@ qsa('a[href^="#"]').forEach(a=>{
   });
 });
 
-/* Collections filtering (chips) */
+/* Collections filtering */
 (function(){
   const grid = document.getElementById('collections-grid');
   if(!grid) return;
-
   const chips = [...document.querySelectorAll('.filters .chip')];
   const items = [...grid.querySelectorAll('li')];
 
