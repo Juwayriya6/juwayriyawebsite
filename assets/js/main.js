@@ -2,17 +2,19 @@
 
   if (window.breakpoints) breakpoints({
     xlarge: [ '1281px', '1680px' ],
-    large:  [ '981px',  '1280px' ],
+    large:  [ '981px',  '1280px'  ],
     medium: [ '737px',  '980px'  ],
     small:  [ '481px',  '736px'  ],
     xsmall: [ null,     '480px'  ]
   });
 
+  // Smooth anchors
   $('a[href^="#"]').on('click', function(e){
     var id = $(this).attr('href'), $el = $(id);
     if ($el.length) { e.preventDefault(); $('html,body').animate({scrollTop:$el.offset().top}, 600); }
   });
 
+  // Slides from any element with slideshowImage attr
   var slides = [];
   $('[slideshowImage]').each(function(){
     slides.push({ url: $(this).attr('slideshowImage'), pos: $(this).attr('slideshowImagePosition') || 'center center' });
@@ -49,6 +51,7 @@
     timer=setTimeout(function(){ goto(nextIndex(), false); }, 4500);
   }
 
+  // Panel backgrounds from data attributes
   $('.panel').each(function(){
     var bg = $(this).data('bg'), pos = $(this).data('bg-position') || 'center center';
     if (bg){
@@ -60,6 +63,7 @@
     }
   });
 
+  // Poptrox captions with icons
   function renderIcons(jsonStr){
     try{
       var arr = JSON.parse(jsonStr); if (!Array.isArray(arr)) return '';
@@ -89,13 +93,13 @@
     });
   }
 
+  // Touch hint + clone socials to footer
   var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
   if (isTouch){
     var hint = $('<div class="tap-hint">Tap for full size</div>').appendTo('body');
     setTimeout(function(){ hint.addClass('show'); }, 500);
     setTimeout(function(){ hint.removeClass('show'); }, 3500);
   }
-
   var $src = $('#socials .icons'); var $dst = $('#footer .icons.cloned');
   if ($src.length && $dst.length){ $dst.html($src.html()); }
 
