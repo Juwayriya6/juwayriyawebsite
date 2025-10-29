@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>juwayriya — chroma-style portfolio</title>
-<meta name="description" content="Juwayriya — dreamy surrealist art, single-page portfolio." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css" />
-<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>juwayriya — portfolio</title>
+  <meta name="description" content="Dreamy surrealist portfolio — fullscreen slideshow, lightbox gallery, one‑page scroll." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-
-<body id="top" data-slides="assets/images/slide1.jpg,assets/images/slide2.jpg,assets/images/slide3.jpg">
-
-  <!-- Header -->
+<body id="top">
   <header id="header">
     <h1><a href="#top">juwayriya</a></h1>
     <nav>
       <a href="#work">work</a>
       <a href="#about">about</a>
+      <a href="#socials">socials</a>
       <a href="#contact">contact</a>
       <a href="https://instagram.com/juwayriya.art" target="_blank" rel="noopener">instagram</a>
     </nav>
   </header>
 
-  <!-- Intro: fullscreen slideshow -->
-  <section id="intro" class="fullscreen">
+  <section id="intro" class="fullscreen"
+    slideshowImage="assets/images/slide1.jpg" slideshowImagePosition="center center">
     <div class="bg a"></div>
     <div class="bg b"></div>
     <div class="overlay"></div>
@@ -42,33 +41,60 @@
     <a class="scrolly" href="#work" aria-label="scroll">↓</a>
   </section>
 
-  <!-- Work -->
-  <section id="work" class="panel">
+  <section class="slide-source" aria-hidden="true"
+    slideshowImage="assets/images/slide2.jpg" slideshowImagePosition="center 40%"></section>
+  <section class="slide-source" aria-hidden="true"
+    slideshowImage="assets/images/slide3.jpg" slideshowImagePosition="center 35%"></section>
+
+  <section id="work" class="panel" data-bg="assets/images/paper.jpg" data-bg-position="center center">
     <div class="inner">
       <h3>Work</h3>
       <ul class="gallery">
-        <li><a href="assets/images/art1.png" class="image fit" title="Art 1 — oil on canvas"><img src="assets/images/art1_thumb.jpg" alt="Art 1"></a></li>
-        <li><a href="assets/images/art2.png" class="image fit" title="Art 2 — oil on canvas"><img src="assets/images/art2_thumb.jpg" alt="Art 2"></a></li>
-        <li><a href="assets/images/art3.jpg" class="image fit" title="Study"><img src="assets/images/art3_thumb.jpg" alt="Study"></a></li>
-        <li><a href="assets/images/art4.jpg" class="image fit" title="Sketch"><img src="assets/images/art4_thumb.jpg" alt="Sketch"></a></li>
+        <li>
+          <a href="assets/images/art1.png" class="image fit"
+             title="Art 1 — oil on canvas"
+             data-caption-icons='[{"href":"https://instagram.com/juwayriya.art","icon":"instagram"}]'>
+            <img src="assets/images/art1_thumb.jpg" alt="Art 1">
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/art2.png" class="image fit"
+             title="Art 2 — oil on canvas"
+             data-caption-icons='[{"href":"mailto:hello@juwayriya.art","icon":"envelope"}]'>
+            <img src="assets/images/art2_thumb.jpg" alt="Art 2">
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/art3.jpg" class="image fit" title="Study">
+            <img src="assets/images/art3_thumb.jpg" alt="Study">
+          </a>
+        </li>
+        <li>
+          <a href="assets/images/art4.jpg" class="image fit" title="Sketch">
+            <img src="assets/images/art4_thumb.jpg" alt="Sketch">
+          </a>
+        </li>
       </ul>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="panel alt">
+  <section id="about" class="panel alt" data-bg="assets/images/about.jpg" data-bg-position="center center">
     <div class="inner narrow">
       <h3>About</h3>
-      <p>
-        I paint soft, surreal worlds where prairie light meets East African pattern.
-        This one‑page site mirrors the **Chroma Botanica** structure and uses the same
-        libraries (jQuery + Poptrox + Scrollex + Breakpoints) as <em>HTML5 UP – Big Picture</em>.
-      </p>
+      <p>I paint soft, surreal worlds where prairie light meets East African pattern.</p>
     </div>
-    <div class="bg photo" style="background-image:url('assets/images/about.jpg')"></div>
   </section>
 
-  <!-- Contact -->
+  <section id="socials" class="panel">
+    <div class="inner narrow">
+      <h3>Socials</h3>
+      <ul class="icons">
+        <li><a href="https://instagram.com/juwayriya.art" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
+        <li><a href="mailto:hello@juwayriya.art" class="icon fa-solid fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+    </div>
+  </section>
+
   <section id="contact" class="panel">
     <div class="inner narrow">
       <h3>Contact</h3>
@@ -84,14 +110,15 @@
     </div>
   </section>
 
-  <!-- Footer / Attribution -->
   <footer id="footer">
-    <p>© 2025 Juwayriya Abdullahi · Built with the same stack as <em>Chroma Botanica</em>, based on
-      <a href="https://html5up.net/big-picture">Big Picture</a> by <a href="https://twitter.com/ajlkn">@ajlkn</a> (<a href="https://html5up.net/license">CC BY 3.0</a>).
-    </p>
+    <div class="inner">
+      <ul class="icons cloned"></ul>
+      <p>© 2025 Juwayriya Abdullahi · Inspired by “Chroma Botanica” and built on
+        <a href="https://html5up.net/big-picture">Big Picture</a> by <a href="https://twitter.com/ajlkn">@ajlkn</a> (<a href="https://html5up.net/license">CC BY 3.0</a>).
+      </p>
+    </div>
   </footer>
 
-  <!-- Scripts: same libraries as Chroma Botanica (via CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.poptrox/2.4.1/jquery.poptrox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>
