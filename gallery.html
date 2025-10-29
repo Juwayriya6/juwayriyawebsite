@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Juwayriya</title>
-  <meta name="description" content="Portfolio — paintings and studies in jade light." />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio — paintings and studies in impressionist light." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -27,36 +27,23 @@
         <button class="chip is-active" data-filter="all">All</button>
         <button class="chip" data-filter="paintings">Paintings</button>
         <button class="chip" data-filter="portraits">Portraits</button>
-        <button class="chip" data-filter="studies">Studies</button>
       </div>
 
       <ul class="grid gallery" id="gallery-grid">
-        <!-- Replace placeholders with your actual pieces -->
         <li class="item" data-group="paintings">
-          <a href="assets/images/art1-1600.webp" data-full="assets/images/art1-1600.webp" data-caption="Lotus Constellations — Oil on canvas">
-            <img src="assets/images/art1-800.webp" alt="Lotus Constellations" width="800" height="1000" loading="lazy">
+          <a href="assets/images/art1.png" data-full="assets/images/art1.png" data-caption="Art 1 — Oil on canvas">
+            <img src="assets/images/art1.png" alt="Art 1" loading="lazy">
           </a>
         </li>
         <li class="item" data-group="portraits">
-          <a href="assets/images/art2-1600.webp" data-full="assets/images/art2-1600.webp" data-caption="Jade Echo — Oil on canvas">
-            <img src="assets/images/art2-800.webp" alt="Jade Echo" width="800" height="1000" loading="lazy">
-          </a>
-        </li>
-        <li class="item" data-group="studies">
-          <a href="assets/images/art3-1600.webp" data-full="assets/images/art3-1600.webp" data-caption="Morning Orbit — study">
-            <img src="assets/images/art3-800.webp" alt="Morning Orbit" width="800" height="1000" loading="lazy">
-          </a>
-        </li>
-        <li class="item" data-group="paintings">
-          <a href="assets/images/art4-1600.webp" data-full="assets/images/art4-1600.webp" data-caption="Fog Echo — Oil on canvas">
-            <img src="assets/images/art4-800.webp" alt="Fog Echo" width="800" height="1000" loading="lazy">
+          <a href="assets/images/art2.png" data-full="assets/images/art2.png" data-caption="Art 2 — Oil on canvas">
+            <img src="assets/images/art2.png" alt="Art 2" loading="lazy">
           </a>
         </li>
       </ul>
     </div>
   </main>
 
-  <!-- Lightweight lightbox -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="close" aria-label="Close">×</button>
     <img id="lightbox-img" alt="Expanded artwork">
