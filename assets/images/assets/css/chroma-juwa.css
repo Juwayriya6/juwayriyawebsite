@@ -1,0 +1,108 @@
+
+:root{
+  color-scheme: light;
+  --ink:#221a27;
+  --muted:#6b5a72;
+  --bg:#fffcfe;
+  --panel:#ffffff;
+  --lilac:#e6d8ff;
+  --peach:#ffd7c8;
+  --accent:#8b6cb0;
+  --maxw:1100px;
+  --sidebar: 260px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html{color-scheme: light; background-color:#fffcfe}
+body{
+  margin:0; color:var(--ink);
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #ffede5, transparent 60%),
+    radial-gradient(1000px 700px at 80% 30%, #f2ecf8, transparent 60%),
+    linear-gradient(180deg, #ffffff, #fffdfd);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+ background-color:#fffafc;}
+
+/* Sidebar */
+.sidebar{
+  position:fixed; inset:0 auto 0 0; width:var(--sidebar);
+  border-right:1px solid rgba(139,108,176,0.25);
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
+  padding: 22px 18px;
+  display:flex; flex-direction:column; gap:16px;
+}
+.brand{font-weight:800; letter-spacing:0.4px}
+.nav a{display:block; color:var(--ink); text-decoration:none; padding:8px 6px; border-radius:8px}
+.nav a:hover{background: rgba(139,108,176,0.1)}
+
+.social{margin-top:auto; display:flex; gap:12px}
+.social a{display:inline-flex; width:24px; height:24px; opacity:0.85}
+.social a:hover{opacity:1}
+.social svg{width:100%; height:100%}
+
+/* Main */
+main{margin-left:var(--sidebar)}
+header.hero{
+  min-height:60vh; position:relative; overflow:hidden;
+  display:grid; place-items:center; text-align:center;
+}
+.slides{position:absolute; inset:0;}
+.slide{background-color:#fffafc;
+  position:absolute; inset:0; opacity:0; transition: opacity .8s ease-in-out;
+  background: linear-gradient( to bottom right, rgba(235,220,250,.5), rgba(255,220,205,.5) ),
+              center/cover no-repeat;
+  background-blend-mode:screen;
+}
+.slide.active{opacity:1}
+.hero__content{
+  z-index:2; background: rgba(255,255,255,.6); border:1px solid rgba(139,108,176,.25);
+  box-shadow:0 10px 30px rgba(139,108,176,.15); padding:24px 22px; border-radius:16px;
+  max-width:760px
+}
+.hero h1{margin:0 0 8px; font-size: clamp(2rem, 3vw + 1rem, 3.4rem); line-height:1.08}
+.hero p{margin:0; color:var(--muted)}
+
+.section{padding:56px 22px}
+.container{max-width:var(--maxw); margin:0 auto}
+
+/* Gallery grid */
+.grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fill, minmax(220px,1fr))}
+.card{background:var(--panel); border:1px solid rgba(139,108,176,.2); border-radius:14px; overflow:hidden}
+.card img{display:block; width:100%; height:260px; object-fit:cover}
+.card figcaption{padding:10px 12px; color:var(--muted); font-size:.95rem}
+
+/* Lightbox */
+.lightbox{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+  background: rgba(28,18,38,.7); z-index:1000;
+}
+.lightbox.open{display:flex}
+.lightbox__img{max-width:92vw; max-height:86vh; border-radius:12px; box-shadow: 0 20px 60px rgba(0,0,0,.5)}
+.lb-close, .lb-prev, .lb-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+  background: rgba(255,255,255,.85); border:1px solid rgba(139,108,176,.4);
+  border-radius:999px; width:40px; height:40px; display:grid; place-items:center; cursor:pointer
+}
+.lb-close{top:6%; right:4%; transform:none}
+.lb-prev{left:4%} .lb-next{right:4%}
+
+/* About + Contact */
+.two-col{display:grid; gap:24px; grid-template-columns: 1.2fr 1fr}
+@media (max-width: 960px){
+  main{margin-left:0}
+  .sidebar{position:static; width:auto; border-right:0; border-bottom:1px solid rgba(139,108,176,.25); flex-direction:row; align-items:center}
+  .nav{display:flex; gap:10px; margin-left:auto}
+  .social{margin-left:12px}
+  header.hero{min-height:50vh}
+  .two-col{grid-template-columns: 1fr}
+}
+.footer{padding:32px 22px; border-top:1px solid rgba(139,108,176,.2); background:#fff}
+.footer .container{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.footer small{color:var(--muted)}
+
+
+@media (prefers-color-scheme: dark){
+  body, .sidebar, .card, .hero__content, .footer{ background-color:#ffffff; color:#221a27; }
+  .card, .footer{ border-color: rgba(139,108,176,.2); }
+}
