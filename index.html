@@ -1,139 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>juwayriya — portfolio</title>
-  <meta name="description" content="Dreamy surrealist portfolio — fullscreen slideshow, lightbox gallery, one‑page scroll." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
-<body id="top">
+<!-- 
+ 	Credits:
+		ajlkn @ GitHub
+		kitbur @ GitHub
+-->
 
-  <!-- Header -->
-  <header id="header">
-    <h1><a href="#top">juwayriya</a></h1>
-    <nav>
-      <a href="#work">work</a>
-      <a href="#about">about</a>
-      <a href="#socials">socials</a>
-      <a href="#contact">contact</a>
-      <a href="https://instagram.com/juwayriya.art" target="_blank" rel="noopener">instagram</a>
-    </nav>
-  </header>
+<!DOCTYPE HTML>
+<html>
 
-  <!-- Intro: slideshow uses slideshowImage attributes like the reference -->
-  <section id="intro" class="fullscreen"
-    slideshowImage="assets/images/slide1.jpg" slideshowImagePosition="center center">
-    <div class="bg a"></div>
-    <div class="bg b"></div>
-    <div class="overlay"></div>
-    <div class="content">
-      <h2 class="brand">juwayriya</h2>
-      <p class="tag">dreamy surrealism • painterly light</p>
-      <ul class="actions">
-        <li><a class="button" href="#work">see portfolio</a></li>
-        <li><a class="button alt" href="#about">about</a></li>
-      </ul>
-      <div id="dots" aria-label="slideshow controls"></div>
-    </div>
-    <a class="scrolly" href="#work" aria-label="scroll">↓</a>
-  </section>
+	<!-- Meta -->
+	<head>
+		<title>Chroma Botanica</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+		<script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-  <!-- Additional slides -->
-  <section class="slide-source" aria-hidden="true"
-    slideshowImage="assets/images/slide2.jpg" slideshowImagePosition="center 40%"></section>
-  <section class="slide-source" aria-hidden="true"
-    slideshowImage="assets/images/slide3.jpg" slideshowImagePosition="center 35%"></section>
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
 
-  <!-- Work -->
-  <section id="work" class="panel" data-bg="assets/images/paper.jpg" data-bg-position="center center">
-    <div class="inner">
-      <h3>Work</h3>
-      <ul class="gallery">
-        <li>
-          <a href="assets/images/art1.png" class="image fit"
-             title="Art 1 — oil on canvas"
-             data-caption-icons='[{"href":"https://instagram.com/juwayriya.art","icon":"instagram"}]'>
-            <img src="assets/images/art1_thumb.jpg" alt="Art 1">
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/art2.png" class="image fit"
-             title="Art 2 — oil on canvas"
-             data-caption-icons='[{"href":"mailto:hello@juwayriya.art","icon":"envelope"}]'>
-            <img src="assets/images/art2_thumb.jpg" alt="Art 2">
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/art3.jpg" class="image fit" title="Study">
-            <img src="assets/images/art3_thumb.jpg" alt="Study">
-          </a>
-        </li>
-        <li>
-          <a href="assets/images/art4.jpg" class="image fit" title="Sketch">
-            <img src="assets/images/art4_thumb.jpg" alt="Sketch">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+				<!-- Slideshow Images -->
+				<div class="slideshow">
+				    <div class="overlay"></div>
+    				<div class="slide active" slideshowImage="images/slideshow/cerfs.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/crevettes.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"></div>
+				</div>
 
-  <!-- About -->
-  <section id="about" class="panel alt" data-bg="assets/images/about.jpg" data-bg-position="center center">
-    <div class="inner narrow">
-      <h3>About</h3>
-      <p>I paint soft, surreal worlds where prairie light meets East African pattern.</p>
-    </div>
-  </section>
+				<!-- Slideshow Navigation -->
+				<div class="slideshowNav">
+					<button class="navDot active" data-index="0" aria-label="Show image 1"></button>
+					<button class="navDot" data-index="1" aria-label="Show image 2"></button>
+					<button class="navDot" data-index="2" aria-label="Show image 3"></button>
+					<button class="navDot" data-index="3" aria-label="Show image 4"></button>
+					<button class="navDot" data-index="4" aria-label="Show image 5"></button>
+				</div>
+						
+				<!-- Header -->
+				<header id="header">
+					<nav>
+						<ul>
+							<li><a href="#me">About Me</a></li>
+							<li><a href="#art">My Art</a></li>
+							<li><a href="#social">Socials</a></li>
+							<li><a href="#contact">Contact Me</a></li>
+						</ul>
+					</nav>
+				</header>
 
-  <!-- Socials -->
-  <section id="socials" class="panel">
-    <div class="inner narrow">
-      <h3>Socials</h3>
-      <ul class="icons">
-        <li><a href="https://instagram.com/juwayriya.art" class="icon brands fa-instagram" target="_blank" rel="noopener"><span class="label">Instagram</span></a></li>
-        <li><a href="mailto:hello@juwayriya.art" class="icon fa-solid fa-envelope"><span class="label">Email</span></a></li>
-      </ul>
-    </div>
-  </section>
+				<div class="content">
+					<header>
+						<h2>Bonjour.</h2>
+					</header>
+					<p>My work is a vibrant celebration of nature, inspired by the elegance of Japanese art.</p> 
+					<p>Explore my world of intricate patterns and decorative designs.</p>
+					<footer>
+						<a href="#me" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
 
-  <!-- Contact -->
-  <section id="contact" class="panel">
-    <div class="inner narrow">
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
-      <form method="POST" action="https://formspree.io/f/mgebljkp" class="contact-form">
-        <div class="row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
-        </div>
-        <textarea name="message" rows="5" placeholder="Your message"></textarea>
-        <button type="submit" class="button">send</button>
-      </form>
-    </div>
-  </section>
+		<!-- About Me -->
+			<section id="me" class="main style2 right dark fullscreen" data-bg="images/aigles.jpg" data-bg-position="left bottom">
+				<div class="content box style2">
+					<header>
+						<h2>About Me</h2>
+					</header>
+					<p>I am Maurice Pillard Verneuil, a French artist and designer. My artistic journey began under the mentorship of the renowned Swiss designer Eugène Grasset. This foundational experience shaped my development as I became a prominent figure in the Art Nouveau and later, the Art Deco movements.</p> 
+				</div>
+				<a href="#art" class="button style2 down anchored">Next</a>
+			</section>
 
-  <!-- Footer / Attribution -->
-  <footer id="footer">
-    <div class="inner">
-      <ul class="icons cloned"></ul>
-      <p>© 2025 Juwayriya Abdullahi · Inspired by “Chroma Botanica” and built on
-        <a href="https://html5up.net/big-picture">Big Picture</a> by <a href="https://twitter.com/ajlkn">@ajlkn</a> (<a href="https://html5up.net/license">CC BY 3.0</a>).
-      </p>
-    </div>
-  </footer>
+		<!-- Art -->
+			<section id="art" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>My Art</h2>
+						<p>My artistic expression is a testament to the beauty of the natural world.</p>
+					</header>
 
-  <!-- Libraries: same stack -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.poptrox/2.4.1/jquery.poptrox.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/n33/skel@2.2.1/dist/skel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ajlkn/breakpoints@1.0.0/breakpoints.min.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+					<!-- Gallery  -->
+						<div class="gallery">
+							<article class="from-left">
+								<a href="images/gallery/cygne-sauvage.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "bluesky", "link": "#bluesky"},
+										{"type": "link", "link": "#genericlink"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/cygne-sauvage.jpg" title="Cygne Sauvage" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "instagram", "link": "#instagram"},
+										{"type": "facebook", "link": "#facebook"},
+										{"type": "vimeo", "link": "#vimeo"}
+									]'>
+									<img src="images/gallery/cytises-et-digitales.jpg" title="Cytises et Digitales" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit" 
+									data-caption-icons='[
+										{"type": "instagram", "link": "#instagram"},
+										{"type": "twitter", "link": "#twitter"},
+										{"type": "ko-fi", "link": "#ko-fi"}
+									]'>
+									<img src="images/gallery/cacatoës-et-magnolia.jpg" title="Cacatoës et Magnolia" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/carpocoris.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "facebook", "link": "#facebook"},
+										{"type": "pinterest", "link": "#pinterest"},
+										{"type": "vimeo", "link": "#vimeo"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/carpocoris.jpg" title="Carpocoris" alt="" />
+								</a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/nénuphar.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "tumblr", "link": "#tumblr"},
+										{"type": "youtube", "link": "#youtube"},
+										{"type": "linkedin", "link": "#linkedin"}
+									]'>
+									<img src="images/gallery/nénuphar.jpg" title="Nénuphar" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/paons-et-pavots.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "mastodon", "link": "#mastodon"},
+										{"type": "patreon", "link": "#patreon"}
+									]'>
+									<img src="images/gallery/paons-et-pavots.jpg" title="Paons et Pavots" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/faisans-ordinaires.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "twitter", "link": "#twitter"},
+										{"type": "patreon", "link": "#patreon"}
+									]'>
+									<img src="images/gallery/faisans-ordinaires.jpg" title="Faisans Ordinaires" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "tumblr", "link": "#tumblr"},
+										{"type": "linkedin", "link": "#linkedin"},
+										{"type": "ko-fi", "link": "#ko-fi"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Martinets et Chèvrefeuille" alt="" /></a>
+							</article>
+						</div>
+
+				</div>
+			</section>
+
+		<!-- Social Media -->
+		<section id="social" class="main style2 left dark fullscreen" data-bg="images/coqs-et-poules.jpg" data-bg-position="25%">
+			<div class="content box style2">
+				<header>
+					<h2>Find Me</h2>
+				</header>
+				<p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
+
+				<!-- Social Media Icons -->
+				<ul class="icons">
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-twitter"></i><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-facebook-f"></i><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-instagram"></i><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-linkedin-in"></i><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-tumblr"></i><span class="label">Tumblr</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-bluesky"></i><span class="label">Bluesky</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-mastodon"></i><span class="label">Mastodon</span></a></li>
+				</ul>
+
+			</div>
+			<a href="#contact" class="button style2 down anchored">Next</a>
+		</section>
+
+		<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content">
+					<header>
+						<h2>Contact Me</h2>
+						<p>For inquiries, commissions, or to simply share your thoughts on my work, please feel free to reach out.</p>
+					</header>
+
+					<!-- Contact Form -->
+					<div class="box">
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
+								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
+								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+							</div>
+							<ul class="actions special">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+					</div>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<!-- Icons will auto-populate from the social section -->
+					<ul class="icons"></ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+
+						<!-- Copyright -->
+						<li>&copy; <span class="currentYear"></span> Chroma Botanica</li>
+						
+						<!-- Optional text -->
+						<li>A website by <a href="https://github.com/kitbur">kitbur</a>.</li>
+					</ul>
+
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/slideshow.js"></script>
+	</body>
 </html>
