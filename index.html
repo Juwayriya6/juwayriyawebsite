@@ -1,142 +1,244 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Juwayriya Abdullahi — Art Portfolio</title>
-  <meta name="description" content="Surrealist paintings and works on paper exploring memory, myth, and prairie landscapes.">
-  <link rel="preload" href="assets/images/banner.png" as="image">
-  <link rel="stylesheet" href="assets/css/juwa-theme.css">
-</head>
-<body>
-  <nav class="nav">
-    <div class="nav__inner">
-      <a class="brand" href="/">JUWAYRIYA ABDULLAHI</a>
-      <div class="nav__spacer"></div>
-      <div class="nav__links">
-        <a href="#work">Work</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
+<!-- 
+ 	Credits:
+		ajlkn @ GitHub
+		kitbur @ GitHub
+-->
 
-  <header class="hero" role="banner">
-    <div class="hero__content">
-      <h1>Dreamlike, layered, and rooted in memory.</h1>
-      <p>Oil paintings and mixed media that weave Somali mythology into Alberta’s prairies — lilac skies, peach light, and quiet power.</p>
-      <a class="btn" href="#work">See the work</a>
-    </div>
-  </header>
+<!DOCTYPE HTML>
+<html>
 
-  <section class="section" id="work">
-    <div class="container">
-      <h2>Selected Works</h2>
-      <p class="lead">Drop your images into <code>assets/images/</code> as <strong>art1.png</strong> … <strong>art11.png</strong>. They’ll display below automatically.</p>
-      <div class="grid">
-        <!-- Gallery cards -->
-        
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art1.png" alt="Artwork 1" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 1 — add title and medium</figcaption>
-    </figure>
-    
+	<!-- Meta -->
+	<head>
+		<title>Chroma Botanica</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+		<script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art2.png" alt="Artwork 2" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 2 — add title and medium</figcaption>
-    </figure>
-    
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art3.png" alt="Artwork 3" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 3 — add title and medium</figcaption>
-    </figure>
-    
+				<!-- Slideshow Images -->
+				<div class="slideshow">
+				    <div class="overlay"></div>
+    				<div class="slide active" slideshowImage="images/slideshow/cerfs.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/crevettes.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
+    				<div class="slide" slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"></div>
+				</div>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art4.png" alt="Artwork 4" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 4 — add title and medium</figcaption>
-    </figure>
-    
+				<!-- Slideshow Navigation -->
+				<div class="slideshowNav">
+					<button class="navDot active" data-index="0" aria-label="Show image 1"></button>
+					<button class="navDot" data-index="1" aria-label="Show image 2"></button>
+					<button class="navDot" data-index="2" aria-label="Show image 3"></button>
+					<button class="navDot" data-index="3" aria-label="Show image 4"></button>
+					<button class="navDot" data-index="4" aria-label="Show image 5"></button>
+				</div>
+						
+				<!-- Header -->
+				<header id="header">
+					<nav>
+						<ul>
+							<li><a href="#me">About Me</a></li>
+							<li><a href="#art">My Art</a></li>
+							<li><a href="#social">Socials</a></li>
+							<li><a href="#contact">Contact Me</a></li>
+						</ul>
+					</nav>
+				</header>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art5.png" alt="Artwork 5" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 5 — add title and medium</figcaption>
-    </figure>
-    
+				<div class="content">
+					<header>
+						<h2>Bonjour.</h2>
+					</header>
+					<p>My work is a vibrant celebration of nature, inspired by the elegance of Japanese art.</p> 
+					<p>Explore my world of intricate patterns and decorative designs.</p>
+					<footer>
+						<a href="#me" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art6.png" alt="Artwork 6" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 6 — add title and medium</figcaption>
-    </figure>
-    
+		<!-- About Me -->
+			<section id="me" class="main style2 right dark fullscreen" data-bg="images/aigles.jpg" data-bg-position="left bottom">
+				<div class="content box style2">
+					<header>
+						<h2>About Me</h2>
+					</header>
+					<p>I am Maurice Pillard Verneuil, a French artist and designer. My artistic journey began under the mentorship of the renowned Swiss designer Eugène Grasset. This foundational experience shaped my development as I became a prominent figure in the Art Nouveau and later, the Art Deco movements.</p> 
+				</div>
+				<a href="#art" class="button style2 down anchored">Next</a>
+			</section>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art7.png" alt="Artwork 7" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 7 — add title and medium</figcaption>
-    </figure>
-    
+		<!-- Art -->
+			<section id="art" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>My Art</h2>
+						<p>My artistic expression is a testament to the beauty of the natural world.</p>
+					</header>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art8.png" alt="Artwork 8" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 8 — add title and medium</figcaption>
-    </figure>
-    
+					<!-- Gallery  -->
+						<div class="gallery">
+							<article class="from-left">
+								<a href="images/gallery/cygne-sauvage.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "bluesky", "link": "#bluesky"},
+										{"type": "link", "link": "#genericlink"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/cygne-sauvage.jpg" title="Cygne Sauvage" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "instagram", "link": "#instagram"},
+										{"type": "facebook", "link": "#facebook"},
+										{"type": "vimeo", "link": "#vimeo"}
+									]'>
+									<img src="images/gallery/cytises-et-digitales.jpg" title="Cytises et Digitales" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit" 
+									data-caption-icons='[
+										{"type": "instagram", "link": "#instagram"},
+										{"type": "twitter", "link": "#twitter"},
+										{"type": "ko-fi", "link": "#ko-fi"}
+									]'>
+									<img src="images/gallery/cacatoës-et-magnolia.jpg" title="Cacatoës et Magnolia" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/carpocoris.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "facebook", "link": "#facebook"},
+										{"type": "pinterest", "link": "#pinterest"},
+										{"type": "vimeo", "link": "#vimeo"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/carpocoris.jpg" title="Carpocoris" alt="" />
+								</a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/nénuphar.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "tumblr", "link": "#tumblr"},
+										{"type": "youtube", "link": "#youtube"},
+										{"type": "linkedin", "link": "#linkedin"}
+									]'>
+									<img src="images/gallery/nénuphar.jpg" title="Nénuphar" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/paons-et-pavots.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "mastodon", "link": "#mastodon"},
+										{"type": "patreon", "link": "#patreon"}
+									]'>
+									<img src="images/gallery/paons-et-pavots.jpg" title="Paons et Pavots" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/gallery/faisans-ordinaires.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "twitter", "link": "#twitter"},
+										{"type": "patreon", "link": "#patreon"}
+									]'>
+									<img src="images/gallery/faisans-ordinaires.jpg" title="Faisans Ordinaires" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"
+									data-caption-icons='[
+										{"type": "tumblr", "link": "#tumblr"},
+										{"type": "linkedin", "link": "#linkedin"},
+										{"type": "ko-fi", "link": "#ko-fi"},
+										{"type": "info", "link": "#info"}
+									]'>
+									<img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Martinets et Chèvrefeuille" alt="" /></a>
+							</article>
+						</div>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art9.png" alt="Artwork 9" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 9 — add title and medium</figcaption>
-    </figure>
-    
+				</div>
+			</section>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art10.png" alt="Artwork 10" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 10 — add title and medium</figcaption>
-    </figure>
-    
+		<!-- Social Media -->
+		<section id="social" class="main style2 left dark fullscreen" data-bg="images/coqs-et-poules.jpg" data-bg-position="25%">
+			<div class="content box style2">
+				<header>
+					<h2>Find Me</h2>
+				</header>
+				<p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
 
-    <figure class="card">
-      <picture>
-        <img src="assets/images/art11.png" alt="Artwork 11" loading="lazy" width="1600" height="1200">
-      </picture>
-      <figcaption>Artwork 11 — add title and medium</figcaption>
-    </figure>
-    
-      </div>
-    </div>
-  </section>
+				<!-- Social Media Icons -->
+				<ul class="icons">
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-twitter"></i><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-facebook-f"></i><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-instagram"></i><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-linkedin-in"></i><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-tumblr"></i><span class="label">Tumblr</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-bluesky"></i><span class="label">Bluesky</span></a></li>
+					<li><a href="#" class="icon brands"><i class="fa-brands fa-mastodon"></i><span class="label">Mastodon</span></a></li>
+				</ul>
 
-  <footer class="footer">
-    <div class="container">
-      <small>© 2025 Juwayriya Abdullahi. Built with a custom pastel theme (inspired by Monet hues).</small>
-      <div>
-        <a href="mailto:juwayriyaa6@gmail.com">Email</a> ·
-        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </footer>
+			</div>
+			<a href="#contact" class="button style2 down anchored">Next</a>
+		</section>
 
-  <script src="assets/js/main.js" defer></script>
-</body>
+		<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content">
+					<header>
+						<h2>Contact Me</h2>
+						<p>For inquiries, commissions, or to simply share your thoughts on my work, please feel free to reach out.</p>
+					</header>
+
+					<!-- Contact Form -->
+					<div class="box">
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
+								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
+								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+							</div>
+							<ul class="actions special">
+								<li><input type="submit" value="Send Message" /></li>
+							</ul>
+						</form>
+					</div>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<!-- Icons will auto-populate from the social section -->
+					<ul class="icons"></ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+
+						<!-- Copyright -->
+						<li>&copy; <span class="currentYear"></span> Chroma Botanica</li>
+						
+						<!-- Optional text -->
+						<li>A website by <a href="https://github.com/kitbur">kitbur</a>.</li>
+					</ul>
+
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/slideshow.js"></script>
+	</body>
 </html>
