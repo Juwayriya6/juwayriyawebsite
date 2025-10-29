@@ -1,39 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>juwayriya</title>
-  <meta name="description" content="juwayriya — dreamy, painterly surrealism in lilac and peach light." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>juwayriya — chroma-style portfolio</title>
+<meta name="description" content="Juwayriya — dreamy surrealist art, single-page portfolio." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css" />
+<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body class="landing">
-  <section class="hero-bleed">
-    <picture class="hero-figure">
-      <source type="image/webp"
-              srcset="assets/images/hero-720.webp 720w,
-                      assets/images/hero-960.webp 960w,
-                      assets/images/hero-1200.webp 1200w"
-              sizes="(max-width: 640px) 70vw, (max-width: 1200px) 46vw, 520px">
-      <source type="image/png"
-              srcset="assets/images/hero-720.png 720w,
-                      assets/images/hero-960.png 960w,
-                      assets/images/hero-1200.png 1200w"
-              sizes="(max-width: 640px) 70vw, (max-width: 1200px) 46vw, 520px">
-      <img src="assets/images/hero-960.png" alt="Hero artwork" width="960" height="1280" loading="eager" fetchpriority="high">
-    </picture>
 
-    <div class="veil"></div>
+<body id="top" data-slides="assets/images/slide1.jpg,assets/images/slide2.jpg,assets/images/slide3.jpg">
 
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="#top">juwayriya</a></h1>
+    <nav>
+      <a href="#work">work</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+      <a href="https://instagram.com/juwayriya.art" target="_blank" rel="noopener">instagram</a>
+    </nav>
+  </header>
+
+  <!-- Intro: fullscreen slideshow -->
+  <section id="intro" class="fullscreen">
+    <div class="bg a"></div>
+    <div class="bg b"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h2 class="brand">juwayriya</h2>
+      <p class="tag">dreamy surrealism • painterly light</p>
+      <ul class="actions">
+        <li><a class="button" href="#work">see portfolio</a></li>
+        <li><a class="button alt" href="#about">about</a></li>
+      </ul>
+      <div id="dots" aria-label="slideshow controls"></div>
+    </div>
+    <a class="scrolly" href="#work" aria-label="scroll">↓</a>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="panel">
     <div class="inner">
-      <h1 class="brand" aria-label="juwayriya"><span>juwayriya</span></h1>
-      <nav class="cta-row">
-        <a class="btn" href="gallery.html">portfolio</a>
-        <a class="btn ghost" href="about.html">about</a>
-        <a class="link" href="contact.html">contact</a>
-      </nav>
+      <h3>Work</h3>
+      <ul class="gallery">
+        <li><a href="assets/images/art1.png" class="image fit" title="Art 1 — oil on canvas"><img src="assets/images/art1_thumb.jpg" alt="Art 1"></a></li>
+        <li><a href="assets/images/art2.png" class="image fit" title="Art 2 — oil on canvas"><img src="assets/images/art2_thumb.jpg" alt="Art 2"></a></li>
+        <li><a href="assets/images/art3.jpg" class="image fit" title="Study"><img src="assets/images/art3_thumb.jpg" alt="Study"></a></li>
+        <li><a href="assets/images/art4.jpg" class="image fit" title="Sketch"><img src="assets/images/art4_thumb.jpg" alt="Sketch"></a></li>
+      </ul>
     </div>
   </section>
+
+  <!-- About -->
+  <section id="about" class="panel alt">
+    <div class="inner narrow">
+      <h3>About</h3>
+      <p>
+        I paint soft, surreal worlds where prairie light meets East African pattern.
+        This one‑page site mirrors the **Chroma Botanica** structure and uses the same
+        libraries (jQuery + Poptrox + Scrollex + Breakpoints) as <em>HTML5 UP – Big Picture</em>.
+      </p>
+    </div>
+    <div class="bg photo" style="background-image:url('assets/images/about.jpg')"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="panel">
+    <div class="inner narrow">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:hello@juwayriya.art">hello@juwayriya.art</a></p>
+      <form method="POST" action="https://formspree.io/f/mgebljkp" class="contact-form">
+        <div class="row">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+        </div>
+        <textarea name="message" rows="5" placeholder="Your message"></textarea>
+        <button type="submit" class="button">send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer / Attribution -->
+  <footer id="footer">
+    <p>© 2025 Juwayriya Abdullahi · Built with the same stack as <em>Chroma Botanica</em>, based on
+      <a href="https://html5up.net/big-picture">Big Picture</a> by <a href="https://twitter.com/ajlkn">@ajlkn</a> (<a href="https://html5up.net/license">CC BY 3.0</a>).
+    </p>
+  </footer>
+
+  <!-- Scripts: same libraries as Chroma Botanica (via CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.poptrox/2.4.1/jquery.poptrox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/n33/skel@2.2.1/dist/skel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ajlkn/breakpoints@1.0.0/breakpoints.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
