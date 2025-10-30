@@ -192,16 +192,26 @@
 
 					<!-- Contact Form -->
 					<div class="box">
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</form>
+						<form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Inquiry: <select name="inquiry[]" multiple>
+      <option value="commission">commission</option>
+      <option value="other">other</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 					</div>
 
 				</div>
@@ -229,6 +239,58 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/slideshow.js"></script>
+			<script>
+/* Update artwork titles by image filename */
+(function () {
+  const titleMap = {
+    "cerfs.jpg": "lantern prince",
+    "abstract-design-based-on-berries-leaves-grasses.jpg": "a woman in Somalia",
+    "crevettes.jpg": "the ferryman",
+    "grenouilles-et-nénuphars.jpg": "river lea",
+    "lion-départ-de-rampe.jpg": "null and void",
+    "aigles.jpg": "a woman in Somalia",
+    "coqs-et-poules.jpg": "the ferryman",
+    "cytises-et-digitales.jpg": "a woman in Somalia",
+    "cacatoës-et-magnolia.jpg": "temperance",
+    "carpocoris.jpg": "the crane wife",
+    "couronne-imperiale.jpg": "river lea",
+    "cygne-sauvage.jpg": "buranbur"
+    // "faisans-ordinaires.jpg": no change
+    // "martinets-et-chèvrefeuille.jpg": no change
+    // "nénuphar.jpg": no change
+    // "paons-et-pavots.jpg": no change
+  };
+
+  function basenameFromURL(href) {
+    try {
+      const u = new URL(href, window.location.href);
+      return decodeURIComponent(u.pathname.split('/').pop());
+    } catch { return ""; }
+  }
+
+  // Works for typical HTML5UP/Chroma Botanica gallery markup with Poptrox
+  const links = document.querySelectorAll('a[href*="images/"], a[href*="assets/images/"]');
+  links.forEach(a => {
+    const href = a.getAttribute('href') || (a.querySelector('img') && a.querySelector('img').getAttribute('src')) || "";
+    const file = basenameFromURL(href);
+    const newTitle = titleMap[file];
+    if (!newTitle || newTitle === "no change") return;
+
+    // visible title (e.g., h3/h2 next to image)
+    let container = a.closest('article, li, figure, .work-item, .thumb, div') || a.parentElement;
+    let titleEl = container && (container.querySelector('h3, h2, figcaption, .title, .caption'));
+    if (!titleEl && a.nextElementSibling && /^(H2|H3|H4|P|DIV|FIGCAPTION)$/.test(a.nextElementSibling.tagName)) {
+      titleEl = a.nextElementSibling;
+    }
+    if (titleEl) titleEl.textContent = newTitle.replace(/\.jpg$/i, "");
+
+    // accessibility / modal captions
+    const img = a.querySelector('img');
+    if (img) img.alt = newTitle.replace(/\.jpg$/i, "");
+    if (a.dataset && a.dataset.caption) a.dataset.caption = newTitle.replace(/\.jpg$/i, "");
+  });
+})();
+</script>
 	</body>
 
 </html>
