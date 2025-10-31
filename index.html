@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE HTML>
 <html>
 
@@ -88,7 +86,7 @@
 										{"type": "link", "link": "#genericlink"},
 										{"type": "info", "link": "#info"}
 									]'>
-									<img src="images/gallery/cygne-sauvage.jpg" title="Cygne Sauvage" alt="" /></a>
+									<img src="images/gallery/cygne-sauvage.jpg" title="buranbur" alt="" /></a>
 							</article>
 							<article class="from-right">
 								<a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
@@ -96,7 +94,7 @@
 										{"type": "instagram", "link": "#instagram"},
 										{"type": "facebook", "link": "#facebook"},
 									]'>
-									<img src="images/gallery/cytises-et-digitales.jpg" title="Cytises et Digitales" alt="" /></a>
+									<img src="images/gallery/cytises-et-digitales.jpg" title="a woman in Somalia" alt="" /></a>
 							</article>
 							<article class="from-left">
 								<a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit" 
@@ -105,7 +103,7 @@
 										{"type": "twitter", "link": "#twitter"},
 										{"type": "ko-fi", "link": "#ko-fi"}
 									]'>
-									<img src="images/gallery/cacatoës-et-magnolia.jpg" title="Cacatoës et Magnolia" alt="" /></a>
+									<img src="images/gallery/cacatoës-et-magnolia.jpg" title="temperance" alt="" /></a>
 							</article>
 							<article class="from-right">
 								<a href="images/gallery/carpocoris.jpg" class="image fit"
@@ -114,7 +112,7 @@
 										{"type": "pinterest", "link": "#pinterest"},
 										{"type": "info", "link": "#info"}
 									]'>
-									<img src="images/gallery/carpocoris.jpg" title="Carpocoris" alt="" />
+									<img src="images/gallery/carpocoris.jpg" title="the crane wife" alt="" />
 								</a>
 							</article>
 							<article class="from-left">
@@ -237,58 +235,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/slideshow.js"></script>
-			<script>
-/* Update artwork titles by image filename */
-(function () {
-  const titleMap = {
-    "cerfs.jpg": "lantern prince",
-    "abstract-design-based-on-berries-leaves-grasses.jpg": "a woman in Somalia",
-    "crevettes.jpg": "the ferryman",
-    "grenouilles-et-nénuphars.jpg": "river lea",
-    "lion-départ-de-rampe.jpg": "null and void",
-    "aigles.jpg": "a woman in Somalia",
-    "coqs-et-poules.jpg": "the ferryman",
-    "cytises-et-digitales.jpg": "a woman in Somalia",
-    "cacatoës-et-magnolia.jpg": "temperance",
-    "carpocoris.jpg": "the crane wife",
-    "couronne-imperiale.jpg": "river lea",
-    "cygne-sauvage.jpg": "buranbur"
-    // "faisans-ordinaires.jpg": no change
-    // "martinets-et-chèvrefeuille.jpg": no change
-    // "nénuphar.jpg": no change
-    // "paons-et-pavots.jpg": no change
-  };
-
-  function basenameFromURL(href) {
-    try {
-      const u = new URL(href, window.location.href);
-      return decodeURIComponent(u.pathname.split('/').pop());
-    } catch { return ""; }
-  }
-
-  // Works for typical HTML5UP/Chroma Botanica gallery markup with Poptrox
-  const links = document.querySelectorAll('a[href*="images/"], a[href*="assets/images/"]');
-  links.forEach(a => {
-    const href = a.getAttribute('href') || (a.querySelector('img') && a.querySelector('img').getAttribute('src')) || "";
-    const file = basenameFromURL(href);
-    const newTitle = titleMap[file];
-    if (!newTitle || newTitle === "no change") return;
-
-    // visible title (e.g., h3/h2 next to image)
-    let container = a.closest('article, li, figure, .work-item, .thumb, div') || a.parentElement;
-    let titleEl = container && (container.querySelector('h3, h2, figcaption, .title, .caption'));
-    if (!titleEl && a.nextElementSibling && /^(H2|H3|H4|P|DIV|FIGCAPTION)$/.test(a.nextElementSibling.tagName)) {
-      titleEl = a.nextElementSibling;
-    }
-    if (titleEl) titleEl.textContent = newTitle.replace(/\.jpg$/i, "");
-
-    // accessibility / modal captions
-    const img = a.querySelector('img');
-    if (img) img.alt = newTitle.replace(/\.jpg$/i, "");
-    if (a.dataset && a.dataset.caption) a.dataset.caption = newTitle.replace(/\.jpg$/i, "");
-  });
-})();
-</script>
 	</body>
 
 </html>
