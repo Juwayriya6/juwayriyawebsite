@@ -2559,3 +2559,24 @@ input, select, textarea {
 			}
 
 		}
+/* Show only one hero slide on mobile */
+@media (max-width: 768px) {
+  #intro .slideshowNav { display: none !important; }
+
+  /* Hide all slides by default on phones */
+  #intro .slide {
+    opacity: 0 !important;          /* override .active */
+    pointer-events: none;
+    background-size: cover !important;    /* keep your original look */
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important; /* avoid iOS zoom */
+  }
+
+  /* Show the chosen mobile hero */
+  #intro .slide[data-mobile-hero="true"] {
+    opacity: 1 !important;
+    pointer-events: auto;
+    /* Tweak focal point if needed */
+    background-position: center 30% !important;
+  }
+}
