@@ -2559,28 +2559,3 @@ input, select, textarea {
 			}
 
 		}
-		/* ---- Slideshow visibility fixes ---- */
-
-/* Stop the mobile/desktop "zoom" bug from parallax */
-#intro .slide { background-attachment: scroll !important; }
-
-/* Default: cover (good for landscape/wide images) */
-#intro .slide { background-size: cover; background-position: center center; }
-
-/* If JS tags a slide as portrait, show the whole image (no crop).
-   You’ll see subtle letterboxing; the overlay keeps it elegant. */
-#intro .slide.is-portrait {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #1c1d26; /* matches your charcoal */
-}
-
-/* Phones: always show the whole image (portrait paintings) */
-@media (max-width: 768px) {
-  #intro .slide {
-    background-size: contain !important;
-    background-position: center 30%; /* nudge subject up a bit */
-    background-repeat: no-repeat;
-    background-color: #1c1d26;
-  }
-}
