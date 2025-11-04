@@ -3,93 +3,113 @@
         kitbur @ GitHub
 */
 
-// Slideshow functionality for intro section
+/* Slideshow for #intro
+   Attributes per .slide:
+     slideshowImage="path.jpg"
+     slideshowImagePosition="center 55%"          // desktop focal point
+     slideshowImagePositionMobile="center 25%"    // mobile focal point (optional)
+   Desktop: cover (full-bleed)
+   Mobile (<=768px): contain (no crop) + mobile focal point
+*/
+
 $(function () {
-    const $gallery = $('#intro .slideshow');
-    const $slides = $('.slide');
-    const $dots = $('.navDot');
-    const viewCounts = Array($slides.length).fill(0);
-    let currentIndex = Math.floor(Math.random() * $slides.length);
-    let interval;
+  const $gallery = $('#intro .slideshow');
+  const $slides  = $gallery.find('.slide');
+  const $dots    = $('.slideshowNav .navDot');
+  if (!$slides.length) return;
 
-    // Assign background images and positions in HTML
-    $slides.each(function () {
-        const $thisSlide = $(this);
+  const viewCounts = Array($slides.length).fill(0);
+  let currentIndex = Math.floor(Math.random() * $slides.length);
+  let interval = null;
 
-        // Assign background images in HTML
-        const bg = $thisSlide.attr('slideshowImage');
-        if (bg) {
-            $thisSlide.css('background-image', `url(${bg})`);
-        }
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-        // Handle background-position from HTML attribute 'slideshowImagePosition'
-        const bgPosAttr = $thisSlide.attr('slideshowImagePosition');
-        if (bgPosAttr) {
-            $thisSlide.css('background-position', bgPosAttr);
-        }
-    });
-
-    function goToSlide(index) {
-        $slides.removeClass('active').eq(index).addClass('active');
-        $dots.removeClass('active').eq(index).addClass('active');
-        currentIndex = index;
-        viewCounts[index]++;
-    }
-
-    // "Fake" random swapping between each gallery image
-    function getNextLeastViewedIndex() {
-        const minViews = Math.min(...viewCounts);
-        const candidates = viewCounts
-            .map((count, index) => (count === minViews && index !== currentIndex ? index : -1))
-            .filter(index => index !== -1);
-        return candidates.length > 0
-            ? candidates[Math.floor(Math.random() * candidates.length)]
-            // Fallback if images are the same
-            : currentIndex;
-    }
-
-    function nextSlide() {
-        const nextIndex = getNextLeastViewedIndex();
-        goToSlide(nextIndex);
-    }
-
-    function startSlider() {
-        interval = setInterval(nextSlide, 5000);
-    }
-
-    // Initialize
-    goToSlide(currentIndex);
-    startSlider();
-
-    $dots.on('click', function () {
-        clearInterval(interval);
-        const index = $(this).index();
-        goToSlide(index);
-        startSlider();
-    });
-
-    // Pause on hover
-    $gallery.hover(
-        () => clearInterval(interval),
-        startSlider
-    );
-});
-// Assume you already have: const $slide = $(...); const url = $slide.attr('slideshowImage');
-
-// 1) Tag slide orientation so CSS can choose cover/contain
-(function markOrientation(el, src) {
-  const img = new Image();
-  img.onload = function () {
-    const portrait = img.naturalHeight >= img.naturalWidth;
-    $(el).toggleClass('is-portrait', portrait)
+  function markOrientation($el, src) {
+    const img = new Image();
+    img.onload = function () {
+      const portrait = img.naturalHeight >= img.naturalWidth;
+      $el.toggleClass('is-portrait', portrait)
          .toggleClass('is-landscape', !portrait);
-  };
-  img.src = src;
-})($slide, url);
+    };
+    img.src = src;
+  }
 
-// 2) Respect per-slide focal points (desktop vs mobile)
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
-const posDesktop = $slide.attr('slideshowImagePosition');        // e.g., "center 55%"
-const posMobile  = $slide.attr('slideshowImagePositionMobile');  // e.g., "center 25%"
-const finalPos   = (isMobile && posMobile) ? posMobile : (posDesktop || 'center center');
-$slide.css('background-position', finalPos);
+  function applyStyles($s) {
+    const url = $s.attr('slideshowImage');
+    if (!url) return;
+
+    const img = new Image(); img.src = url; // preload
+    $s.css('background-image', 'url("' + url + '")');
+    $s.css('background-attachment', 'scroll'); // stop parallax zoom
+
+    const posDesktop = $s.attr('slideshowImagePosition');
+    const posMobile  = $s.attr('slideshowImagePositionMobile');
+    const finalPos   = (isMobile() && posMobile) ? posMobile : (posDesktop || 'center center');
+    $s.css('background-position', finalPos);
+
+    if (isMobile()) {
+      $s.css({
+        'background-size': 'contain',
+        'background-repeat': 'no-repeat',
+        'background-color': '#1c1d26'
+      });
+    } else {
+      $s.css({
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat'
+      });
+    }
+
+    markOrientation($s, url);
+  }
+
+  // Init
+  $slides.each(function () { applyStyles($(this)); });
+
+  // Re-apply on viewport change
+  $(window).on('resize orientationchange', function () {
+    $slides.each(function () { applyStyles($(this)); });
+  });
+
+  function goToSlide(index) {
+    if (index < 0) index = $slides.length - 1;
+    if (index >= $slides.length) index = 0;
+
+    $slides.removeClass('active').eq(index).addClass('active');
+    $dots.removeClass('active').eq(index).addClass('active');
+    viewCounts[index]++;
+  }
+
+  function getNextLeastViewedIndex() {
+    const minViews = Math.min(...viewCounts);
+    const candidates = viewCounts
+      .map((count, i) => (count === minViews && i !== currentIndex ? i : -1))
+      .filter(i => i !== -1);
+    return candidates.length
+      ? candidates[Math.floor(Math.random() * candidates.length)]
+      : (currentIndex + 1) % $slides.length;
+  }
+
+  function nextSlide() { currentIndex = getNextLeastViewedIndex(); goToSlide(currentIndex); }
+
+  function startSlider() {
+    if (interval) clearInterval(interval);
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  // Dots
+  $dots.on('click', function () {
+    const i = parseInt($(this).attr('data-index'), 10) || $(this).index();
+    if (interval) clearInterval(interval);
+    currentIndex = i;
+    goToSlide(i);
+    startSlider();
+  });
+
+  // Pause on hover (desktop)
+  $gallery.hover(() => { if (interval) clearInterval(interval); }, startSlider);
+
+  // Kickoff
+  goToSlide(currentIndex);
+  startSlider();
+});
