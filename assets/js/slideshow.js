@@ -74,3 +74,22 @@ $(function () {
         startSlider
     );
 });
+// Assume you already have: const $slide = $(...); const url = $slide.attr('slideshowImage');
+
+// 1) Tag slide orientation so CSS can choose cover/contain
+(function markOrientation(el, src) {
+  const img = new Image();
+  img.onload = function () {
+    const portrait = img.naturalHeight >= img.naturalWidth;
+    $(el).toggleClass('is-portrait', portrait)
+         .toggleClass('is-landscape', !portrait);
+  };
+  img.src = src;
+})($slide, url);
+
+// 2) Respect per-slide focal points (desktop vs mobile)
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const posDesktop = $slide.attr('slideshowImagePosition');        // e.g., "center 55%"
+const posMobile  = $slide.attr('slideshowImagePositionMobile');  // e.g., "center 25%"
+const finalPos   = (isMobile && posMobile) ? posMobile : (posDesktop || 'center center');
+$slide.css('background-position', finalPos);
