@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html>
-  <!-- Meta -->
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=5, user-scalable=yes">
     <script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
 
     <!-- Core styles -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Add this lightweight override AFTER main.css -->
+    <!-- NEW: overrides to fix slideshow zoom/cropping -->
     <link rel="stylesheet" href="assets/css/overrides.css" />
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -19,12 +18,10 @@
 
     <!-- Intro -->
     <section id="intro" class="main style1 dark fullscreen">
-
       <!-- Slideshow Images -->
       <div class="slideshow">
         <div class="overlay"></div>
 
-        <!-- Add/adjust focal points: desktop vs mobile -->
         <div class="slide active"
              slideshowImage="images/slideshow/cerfs.jpg"
              slideshowImagePosition="center 55%"
@@ -74,7 +71,7 @@
 
       <div class="content">
         <header><h2>Bonjour.</h2></header>
-        <p>My work is a vibrant celebration of nature, inspired by the elegance of east african art.</p>
+        <p>My work is a vibrant celebration of nature, inspired by the elegance of East African art.</p>
         <p>Explore my world of intricate patterns and decorative designs.</p>
         <footer><a href="#me" class="button style2 down">More</a></footer>
       </div>
@@ -85,7 +82,7 @@
              data-bg="images/aigles.jpg" data-bg-position="left bottom">
       <div class="content box style2">
         <header><h2>About Me</h2></header>
-        <p>I am Juwayriya Abdullahi, a Canadian visual artist. My artistic journey began at a very young age, however, it was not until recently that I decided to further develop my craft. I am always interested in astronomy & surrealism—my artwork is inspired by dreamscapes and imaginations. The more fantastical, the better I like it.</p>
+        <p>I am Juwayriya Abdullahi, a Canadian visual artist. My work draws on dreamscapes and surrealism—fantastical, ornate, and nature-forward.</p>
       </div>
       <a href="#art" class="button style2 down anchored">Next</a>
     </section>
@@ -103,9 +100,9 @@
           <article class="from-left">
             <a href="images/gallery/cygne-sauvage.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"bluesky","link":"#bluesky"},
-                 {"type":"link","link":"#genericlink"},
-                 {"type":"info","link":"#info"}
+                 {"type":"bluesky","link":"#"},
+                 {"type":"link","link":"#"},
+                 {"type":"info","link":"#"}
                ]'>
               <img src="images/gallery/cygne-sauvage.jpg" title="buranbur" alt="" />
             </a>
@@ -114,8 +111,8 @@
           <article class="from-right">
             <a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"instagram","link":"#instagram"},
-                 {"type":"facebook","link":"#facebook"}
+                 {"type":"instagram","link":"#"},
+                 {"type":"facebook","link":"#"}
                ]'>
               <img src="images/gallery/cytises-et-digitales.jpg" title="a woman in Somalia" alt="" />
             </a>
@@ -124,9 +121,9 @@
           <article class="from-left">
             <a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"instagram","link":"https://www.instagram.com/juwayriyaart?igsh=MW4xNWtqMnl3a2Jxbw%3D%3D&utm_source=qr"},
-                 {"type":"twitter","link":"#twitter"},
-                 {"type":"ko-fi","link":"#ko-fi"}
+                 {"type":"instagram","link":"https://www.instagram.com/juwayriyaart"},
+                 {"type":"twitter","link":"#"},
+                 {"type":"ko-fi","link":"#"}
                ]'>
               <img src="images/gallery/cacatoës-et-magnolia.jpg" title="temperance" alt="" />
             </a>
@@ -135,9 +132,9 @@
           <article class="from-right">
             <a href="images/gallery/carpocoris.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"facebook","link":"#facebook"},
-                 {"type":"pinterest","link":"#pinterest"},
-                 {"type":"info","link":"#info"}
+                 {"type":"facebook","link":"#"},
+                 {"type":"pinterest","link":"#"},
+                 {"type":"info","link":"#"}
                ]'>
               <img src="images/gallery/carpocoris.jpg" title="the crane wife" alt="" />
             </a>
@@ -146,9 +143,9 @@
           <article class="from-left">
             <a href="images/gallery/nénuphar.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"tumblr","link":"#tumblr"},
-                 {"type":"youtube","link":"#youtube"},
-                 {"type":"linkedin","link":"#linkedin"}
+                 {"type":"tumblr","link":"#"},
+                 {"type":"youtube","link":"#"},
+                 {"type":"linkedin","link":"#"}
                ]'>
               <img src="images/gallery/nénuphar.jpg" title="when the crops grow" alt="" />
             </a>
@@ -169,8 +166,8 @@
           <article class="from-right">
             <a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"
                data-caption-icons='[
-                 {"type":"ko-fi","link":"#ko-fi"},
-                 {"type":"info","link":"#info"}
+                 {"type":"ko-fi","link":"#"},
+                 {"type":"info","link":"#"}
                ]'>
               <img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Null & Void" alt="" />
             </a>
@@ -186,7 +183,6 @@
         <header><h2>Find Me</h2></header>
         <p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
 
-        <!-- Social Media Icons -->
         <ul class="icons">
           <li><a href="#" class="icon brands"><i class="fa-brands fa-twitter"></i><span class="label">Twitter</span></a></li>
           <li><a href="#" class="icon brands"><i class="fa-brands fa-facebook-f"></i><span class="label">Facebook</span></a></li>
@@ -205,10 +201,9 @@
       <div class="content">
         <header>
           <h2>Contact Me</h2>
-          <p>For inquiries, commissions, or to simply share your thoughts on my work, please feel free to reach out.</p>
+          <p>For inquiries, commissions, or to simply share your thoughts, please reach out.</p>
         </header>
 
-        <!-- Contact Form -->
         <div class="box">
           <form name="contact" method="POST" data-netlify="true">
             <p><label>Your Name: <input type="text" name="name" /></label></p>
@@ -230,7 +225,6 @@
 
     <!-- Footer -->
     <footer id="footer">
-      <!-- Icons will auto-populate from the social section -->
       <ul class="icons"></ul>
       <ul class="menu"></ul>
     </footer>
@@ -244,8 +238,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <!-- Replace slideshow.js with the version below -->
     <script src="assets/js/slideshow.js"></script>
   </body>
 </html>
