@@ -1,77 +1,274 @@
-/*
-  Credits:
-    kitbur @ GitHub
-*/
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover, user-scalable=yes">
+    <title>juwayriya</title>
 
-$(function () {
-  const $slideshow = $('#intro .slideshow');
-  const $slides    = $slideshow.find('.slide');
-  const $dots      = $('.slideshowNav .navDot');
+    <!-- Font: load fast (no CSS @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
 
-  let current = 0;
-  let timer   = null;
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
 
-  // Set background images once
-  $slides.each(function () {
-    const $s = $(this);
-    const img = $s.attr('slideshowImage');
-    if (img) $s.css('background-image', `url(${img})`);
-  });
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-  function applyFocal($s) {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    const posDesktop = $s.attr('slideshowImagePosition') || 'center center';
-    const posMobile  = $s.attr('slideshowImagePositionMobile') || posDesktop;
-    const sizeMobile = $s.attr('slideshowImageSizeMobile') || 'cover'; // optional attr
+    <!-- Preload first hero for faster LCP -->
+    <link rel="preload" as="image"
+      href="images/slideshow/optimized/cerfs-960.webp"
+      imagesrcset="
+        images/slideshow/optimized/cerfs-720.webp 720w,
+        images/slideshow/optimized/cerfs-960.webp 960w,
+        images/slideshow/optimized/cerfs-1200.webp 1200w"
+      imagesizes="100vw">
+  </head>
 
-    $s.css('background-position', isMobile ? posMobile : posDesktop);
-    $s.css('background-attachment', isMobile ? 'scroll' : 'fixed');
-    if (isMobile) $s.css('background-size', sizeMobile); // 'cover' or 'contain'
-  }
+  <body class="is-preload">
+    <!-- Intro -->
+    <section id="intro" class="main style1 dark fullscreen">
+      <!-- Slideshow Images -->
+      <div class="slideshow">
+        <div class="overlay"></div>
 
-  function show(i) {
-    $slides.removeClass('active').eq(i).addClass('active');
-    $dots.removeClass('active').eq(i).addClass('active');
-    applyFocal($slides.eq(i));
-    current = i;
-  }
+        <!-- Slides: use your optimized WebPs with a JPG fallback -->
+        <div class="slide active"
+             data-srcset="
+               images/slideshow/optimized/cerfs-720.webp 720w,
+               images/slideshow/optimized/cerfs-960.webp 960w,
+               images/slideshow/optimized/cerfs-1200.webp 1200w"
+             data-fallback="images/slideshow/cerfs.jpg"
+             data-position="center 55%"
+             data-position-mobile="center 25%"></div>
 
-  function next() { show((current + 1) % $slides.length); }
-  function prev() { show((current - 1 + $slides.length) % $slides.length); }
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/grenouilles-et-nénuphars-720.webp 720w,
+               images/slideshow/optimized/grenouilles-et-nénuphars-960.webp 960w,
+               images/slideshow/optimized/grenouilles-et-nénuphars-1200.webp 1200w"
+             data-fallback="images/slideshow/grenouilles-et-nénuphars.jpg"
+             data-position-mobile="center 30%"></div>
 
-  function start() { stop(); timer = setInterval(next, 6000); }
-  function stop()  { if (timer) clearInterval(timer); }
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/crevettes-720.webp 720w,
+               images/slideshow/optimized/crevettes-960.webp 960w,
+               images/slideshow/optimized/crevettes-1200.webp 1200w"
+             data-fallback="images/slideshow/crevettes.jpg"></div>
 
-  // Dot navigation
-  $dots.on('click', function () {
-    stop();
-    const i = $(this).data('index') ?? $(this).index();
-    show(i);
-    start();
-  });
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-720.webp 720w,
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-960.webp 960w,
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-1200.webp 1200w"
+             data-fallback="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
 
-  // Swipe navigation (mobile)
-  let sx = 0, sy = 0;
-  $slideshow.on('touchstart', e => {
-    const t = e.originalEvent.touches[0];
-    sx = t.clientX; sy = t.clientY;
-    stop();
-  });
-  $slideshow.on('touchend', e => {
-    const t = e.originalEvent.changedTouches[0];
-    const dx = t.clientX - sx;
-    const dy = t.clientY - sy;
-    // horizontal swipe
-    if (Math.abs(dx) > 40 && Math.abs(dy) < 60) {
-      dx < 0 ? next() : prev();
-    }
-    start();
-  });
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/lion-départ-de-rampe-720.webp 720w,
+               images/slideshow/optimized/lion-départ-de-rampe-960.webp 960w,
+               images/slideshow/optimized/lion-départ-de-rampe-1200.webp 1200w"
+             data-fallback="images/slideshow/lion-départ-de-rampe.jpg"
+             data-position="center 45%"
+             data-position-mobile="center 28%"></div>
+      </div>
 
-  // Keep focal point correct on rotate/resize
-  $(window).on('resize orientationchange', () => applyFocal($slides.eq(current)));
+      <!-- Slideshow Navigation -->
+      <div class="slideshowNav" aria-label="Slideshow navigation">
+        <button class="navDot active" data-index="0" aria-label="Show image 1"></button>
+        <button class="navDot" data-index="1" aria-label="Show image 2"></button>
+        <button class="navDot" data-index="2" aria-label="Show image 3"></button>
+        <button class="navDot" data-index="3" aria-label="Show image 4"></button>
+        <button class="navDot" data-index="4" aria-label="Show image 5"></button>
+      </div>
 
-  // Init
-  show(current);
-  start();
-});
+      <!-- Header -->
+      <header id="header">
+        <nav>
+          <ul>
+            <li><a href="#me">About Me</a></li>
+            <li><a href="#art">My Art</a></li>
+            <li><a href="#social">Socials</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="content">
+        <header><h2>Hello.</h2></header>
+        <p>My work is a vibrant celebration of nature, inspired by the elegance of East African art.</p>
+        <p>Explore my world of intricate patterns and decorative designs.</p>
+        <footer><a href="#me" class="button style2 down">More</a></footer>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="me" class="main style2 right dark fullscreen"
+             data-bg="images/aigles.jpg" data-bg-position="left bottom">
+      <div class="content box style2">
+        <header><h2>About Me</h2></header>
+        <p>I am Juwayriya Abdullahi, a Canadian visual artist. My work draws on dreamscapes and surrealism; fantastical, ornate, and nature-forward.</p>
+      </div>
+      <a href="#art" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Art -->
+    <section id="art" class="main style3 primary">
+      <div class="content">
+        <header>
+          <h2>My Art</h2>
+          <p>My artistic expression is a testament to the beauty of the natural world.</p>
+        </header>
+
+        <!-- Gallery -->
+        <div class="gallery">
+          <article class="from-left">
+            <a href="images/gallery/cygne-sauvage.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"bluesky","link":"#"},
+                 {"type":"link","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/cygne-sauvage.jpg" title="buranbur" alt="" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"instagram","link":"#"},
+                 {"type":"facebook","link":"#"}
+               ]'>
+              <img src="images/gallery/cytises-et-digitales.jpg" title="a woman in Somalia" alt="" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"instagram","link":"https://www.instagram.com/juwayriyaart"},
+                 {"type":"twitter","link":"#"},
+                 {"type":"ko-fi","link":"#"}
+               ]'>
+              <img src="images/gallery/cacatoës-et-magnolia.jpg" title="temperance" alt="" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/carpocoris.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"facebook","link":"#"},
+                 {"type":"pinterest","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/carpocoris.jpg" title="the crane wife" alt="" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/nénuphar.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"tumblr","link":"#"},
+                 {"type":"youtube","link":"#"},
+                 {"type":"linkedin","link":"#"}
+               ]'>
+              <img src="images/gallery/nénuphar.jpg" title="when the crops grow" alt="" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/paons-et-pavots.jpg" class="image fit">
+              <img src="images/gallery/paons-et-pavots.jpg" title="Paons et Pavots" alt="" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/faisans-ordinaires.jpg" class="image fit">
+              <img src="images/gallery/faisans-ordinaires.jpg" title="My Mother's village" alt="" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"ko-fi","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Null & Void" alt="" />
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media -->
+    <section id="social" class="main style2 left dark fullscreen"
+             data-bg="images/coqs-et-poules.jpg" data-bg-position="25%">
+      <div class="content box style2">
+        <header><h2>Find Me</h2></header>
+        <p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
+
+        <ul class="icons">
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-twitter"></i><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-facebook-f"></i><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-instagram"></i><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-linkedin-in"></i><span class="label">LinkedIn</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-tumblr"></i><span class="label">Tumblr</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-bluesky"></i><span class="label">Bluesky</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-mastodon"></i><span class="label">Mastodon</span></a></li>
+        </ul>
+      </div>
+      <a href="#contact" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="main style3 secondary">
+      <div class="content">
+        <header>
+          <h2>Contact Me</h2>
+          <p>For inquiries, commissions, or to simply share your thoughts, please reach out.</p>
+        </header>
+
+        <div class="box">
+          <form name="contact" method="POST" data-netlify="true">
+            <p><label>Your Name: <input type="text" name="name" /></label></p>
+            <p><label>Your Email: <input type="email" name="email" /></label></p>
+            <p>
+              <label>Inquiry:
+                <select name="inquiry[]" multiple>
+                  <option value="commission">commission</option>
+                  <option value="other">other</option>
+                </select>
+              </label>
+            </p>
+            <p><label>Message: <textarea name="message"></textarea></label></p>
+            <p><button type="submit">Send</button></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons"></ul>
+      <ul class="menu"></ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Make sure you replaced slideshow.js with the version that reads data-srcset/data-fallback -->
+    <script src="assets/js/slideshow.js"></script>
+  </body>
+</html>
