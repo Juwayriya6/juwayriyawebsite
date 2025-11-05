@@ -1,61 +1,85 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
- <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover, user-scalable=yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover, user-scalable=yes">
+    <title>juwayriya</title>
+
+    <!-- Font: load fast (no CSS @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
 
-    <!-- Core styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- NEW: overrides to fix slideshow zoom/cropping -->
-    <link rel="stylesheet" href="assets/css/overrides.css" />
-
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <title>juwayriya</title>
-  </head>
-  <body class="is-preload">
 
+    <!-- Preload first hero for faster LCP -->
+    <link rel="preload" as="image"
+      href="images/slideshow/optimized/cerfs-960.webp"
+      imagesrcset="
+        images/slideshow/optimized/cerfs-720.webp 720w,
+        images/slideshow/optimized/cerfs-960.webp 960w,
+        images/slideshow/optimized/cerfs-1200.webp 1200w"
+      imagesizes="100vw">
+  </head>
+
+  <body class="is-preload">
     <!-- Intro -->
     <section id="intro" class="main style1 dark fullscreen">
       <!-- Slideshow Images -->
       <div class="slideshow">
         <div class="overlay"></div>
 
+        <!-- Slides: use your optimized WebPs with a JPG fallback -->
         <div class="slide active"
-             slideshowImage="images/slideshow/cerfs.jpg"
-             slideshowImagePosition="center 55%"
-             slideshowImagePositionMobile="center 25%"></div>
-
-       <div class="slide active" slideshowImage="images/slideshow/cerfs.jpg"></div>
-
-<div class="slide"
-     slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg"
-     data-mobile-hero="true"
-     slideshowImagePositionMobile="center 30%"></div>
-
-<div class="slide" slideshowImage="images/slideshow/crevettes.jpg"></div>
-<div class="slide" slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
-<div class="slide" slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"></div>
-        <div class="slide"
-             slideshowImage="images/slideshow/crevettes.jpg"
-             slideshowImagePosition="center 50%"
-             slideshowImagePositionMobile="center 30%"></div>
+             data-srcset="
+               images/slideshow/optimized/cerfs-720.webp 720w,
+               images/slideshow/optimized/cerfs-960.webp 960w,
+               images/slideshow/optimized/cerfs-1200.webp 1200w"
+             data-fallback="images/slideshow/cerfs.jpg"
+             data-position="center 55%"
+             data-position-mobile="center 25%"></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"
-             slideshowImagePosition="center 50%"
-             slideshowImagePositionMobile="center 30%"></div>
+             data-srcset="
+               images/slideshow/optimized/grenouilles-et-nénuphars-720.webp 720w,
+               images/slideshow/optimized/grenouilles-et-nénuphars-960.webp 960w,
+               images/slideshow/optimized/grenouilles-et-nénuphars-1200.webp 1200w"
+             data-fallback="images/slideshow/grenouilles-et-nénuphars.jpg"
+             data-position-mobile="center 30%"></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"
-             slideshowImagePosition="center 45%"
-             slideshowImagePositionMobile="center 28%"></div>
+             data-srcset="
+               images/slideshow/optimized/crevettes-720.webp 720w,
+               images/slideshow/optimized/crevettes-960.webp 960w,
+               images/slideshow/optimized/crevettes-1200.webp 1200w"
+             data-fallback="images/slideshow/crevettes.jpg"></div>
+
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-720.webp 720w,
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-960.webp 960w,
+               images/slideshow/optimized/abstract-design-based-on-berries-leaves-grasses-1200.webp 1200w"
+             data-fallback="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
+
+        <div class="slide"
+             data-srcset="
+               images/slideshow/optimized/lion-départ-de-rampe-720.webp 720w,
+               images/slideshow/optimized/lion-départ-de-rampe-960.webp 960w,
+               images/slideshow/optimized/lion-départ-de-rampe-1200.webp 1200w"
+             data-fallback="images/slideshow/lion-départ-de-rampe.jpg"
+             data-position="center 45%"
+             data-position-mobile="center 28%"></div>
       </div>
 
       <!-- Slideshow Navigation -->
-      <div class="slideshowNav">
+      <div class="slideshowNav" aria-label="Slideshow navigation">
         <button class="navDot active" data-index="0" aria-label="Show image 1"></button>
         <button class="navDot" data-index="1" aria-label="Show image 2"></button>
         <button class="navDot" data-index="2" aria-label="Show image 3"></button>
@@ -244,6 +268,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <!-- Make sure you replaced slideshow.js with the version that reads data-srcset/data-fallback -->
     <script src="assets/js/slideshow.js"></script>
   </body>
 </html>
