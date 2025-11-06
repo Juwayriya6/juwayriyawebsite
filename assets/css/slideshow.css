@@ -1,118 +1,14 @@
-/* ------------------------------------------------------------------
-   Slideshow polish (safe overrides)
-   - Subtle fade/scale on slide change
-   - Crisper background positioning
-   - Larger, clearer nav dots with focus rings
-   - Better mobile tap targets
-   - Respects prefers-reduced-motion
-------------------------------------------------------------------- */
-
-/* Tunable variables */
-:root {
-  --slide-fade-duration: 700ms;
-  --slide-fade-ease: cubic-bezier(.22,.61,.36,1);
-  --slide-scale-in: 1.015;
-  --dot-size: 12px;
-  --dot-size-mobile: 16px;
-  --dot-gap: 14px;
-  --dot-bg: rgba(255,255,255,.55);
-  --dot-bg-active: rgba(255,255,255,.98);
-  --dot-bg-hover: rgba(255,255,255,.85);
-  --dot-ring: 0 0 0 2px rgba(255,255,255,.45);
+/* Slideshow overrides (safe to drop-in) */
+#intro { position: relative; }
+#intro .slideshow { position:absolute; inset:0; z-index:0; }
+#intro .slide { position:absolute; inset:0; background-size:cover; background-position:center; background-repeat:no-repeat; opacity:0; transition:opacity 600ms ease; }
+#intro .slide.active { opacity:1; }
+#intro .overlay { position:absolute; inset:0; background: url("../images/overlay.png"); z-index:2; pointer-events:none; }
+#intro .slideshowNav { position:absolute; right:30px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:3; }
+#intro .navDot { width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,.55); border:none; cursor:pointer; }
+#intro .navDot.active { background:rgba(255,255,255,.95); }
+@media (max-width: 1000px){
+  #intro .slideshowNav{ top:18px; right:50%; transform:translateX(50%); flex-direction:row; }
 }
-
-/* Base slide animation */
-#intro .slide {
-  opacity: 0;
-  transform: scale(var(--slide-scale-in));
-  transition:
-    opacity var(--slide-fade-duration) var(--slide-fade-ease),
-    transform var(--slide-fade-duration) var(--slide-fade-ease);
-  will-change: opacity, transform, background-image, background-position;
-  /* Prevent tiny layout jumps on mobile */
-  background-position: center center;
-  background-size: cover;
-}
-
-/* Active slide feels crisp and present */
-#intro .slide.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Make sure overlay sits above slides, below UI */
-#intro .overlay { z-index: 1; }
-#intro .slideshowNav { z-index: 2; }
-
-/* Dots layout */
-#intro .slideshowNav {
-  display: flex;
-  gap: var(--dot-gap);
-  align-items: center;
-}
-
-/* Dot button style */
-#intro .navDot {
-  width: var(--dot-size);
-  height: var(--dot-size);
-  border-radius: 999px;
-  background: var(--dot-bg);
-  border: none;
-  padding: 0;
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
-  outline: none;
-  /* Improve tap targeting without changing visual size */
-  position: relative;
-}
-#intro .navDot::after {
-  content: "";
-  position: absolute;
-  inset: -8px; /* bigger hit area */
-}
-
-/* Hover / Active / Focus states */
-#intro .navDot:hover { background: var(--dot-bg-hover); transform: scale(1.12); }
-#intro .navDot.active { background: var(--dot-bg-active); transform: scale(1.18); }
-#intro .navDot:focus-visible { box-shadow: var(--dot-ring); }
-
-/* Mobile: keep dots finger-friendly and centered over content */
-@media (max-width: 1000px) {
-  #intro .slideshowNav {
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    gap: 12px;
-  }
-  #intro .navDot { width: var(--dot-size-mobile); height: var(--dot-size-mobile); }
-}
-
-/* Reduced motion users: remove scale, quick fade only */
-@media (prefers-reduced-motion: reduce) {
-  :root { --slide-fade-duration: 200ms; --slide-scale-in: 1; }
-  #intro .slide, #intro .navDot {
-    transition: opacity 200ms ease, background-color 150ms ease, box-shadow 150ms ease !important;
-  }
-}
-
-/* Edge cases: ensure slideshow never blocks interactions */
-#intro .slideshow { pointer-events: none; }
-#intro .slideshowNav { pointer-events: auto; }
-
-/* Optional: slight gradient for dot readability on busy images */
-#intro .slideshowNav::before {
-  content: "";
-  position: absolute;
-  inset: -10px -16px;
-  background: linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,0));
-  border-radius: 16px;
-  filter: blur(6px);
-  z-index: -1;
-  opacity: .35;
-}
-@media (max-width: 1000px) {
-  #intro .slideshowNav::before { opacity: .45; }
-}
+/* Ensure intro content stays on top */
+#intro .content { position:relative; z-index:4; }
