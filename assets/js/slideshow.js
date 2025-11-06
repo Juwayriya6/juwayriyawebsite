@@ -1,105 +1,44 @@
-(function () {
-  const container = document.querySelector('#intro .slideshow');
-  if (!container) return;
+// Simple, crash-proof slideshow
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const slides = Array.from(document.querySelectorAll('#intro .slide'));
+    const dots = Array.from(document.querySelectorAll('#intro .slideshowNav .navDot'));
+    if (slides.length === 0) return;
 
-  let slides = Array.from(container.querySelectorAll('.slide'));
-  if (!slides.length) return;
+    // Apply background images and focal points from attributes
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    slides.forEach(s => {
+      const src = s.getAttribute('slideshowImage');
+      if (src) s.style.backgroundImage = `url("${src}")`;
 
-  // Normalize: keep only the first .active
-  let firstActiveFound = false;
-  slides.forEach(s => {
-    if (s.classList.contains('active') && !firstActiveFound) {
-      firstActiveFound = true;
-    } else {
-      s.classList.remove('active');
-    }
-  });
-  if (!firstActiveFound) slides[0].classList.add('active');
-
-  // Helper: choose best width
-  function pickWidth() {
-    const w = Math.max(window.innerWidth || 0, screen.width || 0);
-    if (w <= 780) return 720;
-    if (w <= 1100) return 960;
-    return 1200;
-  }
-
-  function toOptimizedWebP(path, width) {
-    // expects path like images/slideshow/foo.jpg
-    // returns images/slideshow/optimized/foo-960.webp
-    const parts = path.split('/');
-    const file = parts.pop();
-    const stem = file.replace(/\.(png|jpg|jpeg|webp)$/i, '');
-    const dir  = parts.join('/');
-    return `${dir}/optimized/${stem}-${width}.webp`;
-  }
-
-  // Apply background images
-  function applyBackgrounds() {
-    const w = pickWidth();
-    slides.forEach(slide => {
-      const src = slide.getAttribute('slideshowImage') || slide.getAttribute('data-image') || '';
-      if (!src) return;
-      // Prefer optimized webp; fall back to original
-      const webp = toOptimizedWebP(src, w);
-      // Set with image-set where supported; otherwise just webp
-      slide.style.backgroundImage = `url("${webp}")`;
-      // Optional: custom position for mobile/desktop
-      const pos = slide.getAttribute('slideshowImagePosition');
-      const posMobile = slide.getAttribute('slideshowImagePositionMobile');
-      const isMobile = (window.innerWidth || 0) <= 780;
-      if (posMobile && isMobile) slide.style.backgroundPosition = posMobile;
-      else if (pos) slide.style.backgroundPosition = pos;
-      else slide.style.backgroundPosition = 'center';
+      const mobilePos = s.getAttribute('slideshowImagePositionMobile');
+      const deskPos = s.getAttribute('slideshowImagePosition');
+      if (isMobile && mobilePos) s.style.backgroundPosition = mobilePos;
+      else if (deskPos) s.style.backgroundPosition = deskPos;
     });
-  }
 
-  applyBackgrounds();
-  window.addEventListener('resize', () => {
-    // throttle a bit
-    clearTimeout(window.__slideResizeTO);
-    window.__slideResizeTO = setTimeout(applyBackgrounds, 150);
-  });
-
-  // Build dots to match slides
-  const nav = container.parentElement.querySelector('.slideshowNav');
-  if (nav) {
-    nav.innerHTML = '';
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.className = 'navDot' + (i === 0 ? ' active' : '');
-      b.setAttribute('aria-label', `Show image ${i+1}`);
-      b.addEventListener('click', () => goTo(i));
-      nav.appendChild(b);
-    });
-  }
-
-  function setActive(index) {
-    slides.forEach((s, i) => s.classList.toggle('active', i === index));
-    if (nav) {
-      const dots = Array.from(nav.querySelectorAll('.navDot'));
-      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    // State
+    let i = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
+    if (i >= slides.length) i = 0;
+    function show(n) {
+      slides[i].classList.remove('active');
+      if (dots[i]) dots[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      if (dots[i]) dots[i].classList.add('active');
     }
-    current = index;
-  }
 
-  let current = slides.findIndex(s => s.classList.contains('active'));
-  if (current < 0) current = 0;
-  let timer = null;
+    // Dots
+    dots.forEach(btn => {
+      btn.addEventListener('click', () => show(parseInt(btn.dataset.index || '0', 10)));
+    });
 
-  function goTo(i) {
-    clearInterval(timer);
-    setActive(i);
-    start();
+    // Auto-rotate
+    setInterval(() => show(i + 1), 4500);
+  } catch (e) {
+    console.error('slideshow error:', e);
+  } finally {
+    // Ensure preloader is gone even if something breaks
+    document.body.classList.remove('is-preload');
   }
-
-  function next() {
-    const n = (current + 1) % slides.length;
-    setActive(n);
-  }
-
-  function start() {
-    timer = setInterval(next, 5000);
-  }
-  start();
-})();
+});
