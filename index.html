@@ -6,7 +6,7 @@
           content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover, user-scalable=yes">
     <title>juwayriya</title>
 
-    <!-- Font: load fast (no CSS @import) -->
+    <!-- Fonts (faster than @import in CSS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
@@ -16,27 +16,26 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/slideshow.css" />
+    <!-- Small “safety” overrides: kills the preloader if JS fails, tweaks mobile slideshow dots -->
+    <link rel="stylesheet" href="assets/css/overrides.css" />
+
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Preload first hero for faster LCP -->
+    <!-- Preload first hero for faster LCP (optional) -->
     <link rel="preload" as="image"
-      href="images/slideshow/optimized/cerfs-960.webp"
-      imagesrcset="
-        images/slideshow/optimized/cerfs-720.webp 720w,
-        images/slideshow/optimized/cerfs-960.webp 960w,
-        images/slideshow/optimized/cerfs-1200.webp 1200w"
-      imagesizes="100vw">
+      href="images/slideshow/cerfs.jpg">
   </head>
-  <body class="is-preload">
 
-    <!-- Intro -->
+  <!-- NOTE: no is-preload class, so the page never gets stuck white -->
+  <body>
+
+    <!-- Intro / Slideshow -->
     <section id="intro" class="main style1 dark fullscreen">
       <div class="slideshow">
         <div class="overlay"></div>
 
-        <!-- Keep exactly one .active -->
+        <!-- One (and only one) slide should start as .active -->
         <div class="slide active"
              slideshowImage="images/slideshow/cerfs.jpg"
              slideshowImagePosition="center 55%"
@@ -44,18 +43,13 @@
 
         <div class="slide"
              slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg"
-             slideshowImagePosition="center 50%"
              slideshowImagePositionMobile="center 30%"></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/crevettes.jpg"
-             slideshowImagePosition="center 50%"
-             slideshowImagePositionMobile="center 30%"></div>
+             slideshowImage="images/slideshow/crevettes.jpg"></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"
-             slideshowImagePosition="center 50%"
-             slideshowImagePositionMobile="center 30%"></div>
+             slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
 
         <div class="slide"
              slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"
@@ -63,8 +57,14 @@
              slideshowImagePositionMobile="center 28%"></div>
       </div>
 
-      <!-- Slideshow Navigation (autofilled by JS) -->
-      <div class="slideshowNav"></div>
+      <!-- Slideshow Navigation (one dot per slide) -->
+      <div class="slideshowNav" aria-label="Slideshow navigation">
+        <button class="navDot active" data-index="0" aria-label="Show image 1"></button>
+        <button class="navDot" data-index="1" aria-label="Show image 2"></button>
+        <button class="navDot" data-index="2" aria-label="Show image 3"></button>
+        <button class="navDot" data-index="3" aria-label="Show image 4"></button>
+        <button class="navDot" data-index="4" aria-label="Show image 5"></button>
+      </div>
 
       <!-- Header -->
       <header id="header">
@@ -86,23 +86,143 @@
       </div>
     </section>
 
-    <!-- Minimal body so the hero can be tested quickly -->
+    <!-- About Me -->
     <section id="me" class="main style2 right dark fullscreen"
              data-bg="images/aigles.jpg" data-bg-position="left bottom">
       <div class="content box style2">
         <header><h2>About Me</h2></header>
-        <p>Replace this section with your full content (unchanged from your project).</p>
+        <p>I am Juwayriya Abdullahi, a Canadian visual artist. My work draws on dreamscapes and surrealism; fantastical, ornate, and nature-forward.</p>
+      </div>
+      <a href="#art" class="button style2 down anchored">Next</a>
+    </section>
+
+    <!-- Art -->
+    <section id="art" class="main style3 primary">
+      <div class="content">
+        <header>
+          <h2>My Art</h2>
+          <p>My artistic expression is a testament to the beauty of the natural world.</p>
+        </header>
+
+        <div class="gallery">
+          <article class="from-left">
+            <a href="images/gallery/cygne-sauvage.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"bluesky","link":"#"},
+                 {"type":"link","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/cygne-sauvage.jpg" title="buranbur" alt="Artwork: buranbur" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/cytises-et-digitales.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"instagram","link":"#"},
+                 {"type":"facebook","link":"#"}
+               ]'>
+              <img src="images/gallery/cytises-et-digitales.jpg" title="a woman in Somalia" alt="Artwork: a woman in Somalia" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"instagram","link":"https://www.instagram.com/juwayriyaart"},
+                 {"type":"twitter","link":"#"},
+                 {"type":"ko-fi","link":"#"}
+               ]'>
+              <img src="images/gallery/cacatoës-et-magnolia.jpg" title="temperance" alt="Artwork: temperance" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/carpocoris.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"facebook","link":"#"},
+                 {"type":"pinterest","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/carpocoris.jpg" title="the crane wife" alt="Artwork: the crane wife" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/nénuphar.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"tumblr","link":"#"},
+                 {"type":"youtube","link":"#"},
+                 {"type":"linkedin","link":"#"}
+               ]'>
+              <img src="images/gallery/nénuphar.jpg" title="when the crops grow" alt="Artwork: when the crops grow" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/paons-et-pavots.jpg" class="image fit">
+              <img src="images/gallery/paons-et-pavots.jpg" title="Paons et Pavots" alt="Artwork: Paons et Pavots" />
+            </a>
+          </article>
+
+          <article class="from-left">
+            <a href="images/gallery/faisans-ordinaires.jpg" class="image fit">
+              <img src="images/gallery/faisans-ordinaires.jpg" title="My Mother's village" alt="Artwork: My Mother's village" />
+            </a>
+          </article>
+
+          <article class="from-right">
+            <a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"
+               data-caption-icons='[
+                 {"type":"ko-fi","link":"#"},
+                 {"type":"info","link":"#"}
+               ]'>
+              <img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Null & Void" alt="Artwork: Null & Void" />
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section id="social" class="main style2 left dark fullscreen"
+             data-bg="images/coqs-et-poules.jpg" data-bg-position="25%">
+      <div class="content box style2">
+        <header><h2>Find Me</h2></header>
+        <p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
+        <ul class="icons">
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-twitter"></i><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-facebook-f"></i><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-instagram"></i><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-linkedin-in"></i><span class="label">LinkedIn</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-tumblr"></i><span class="label">Tumblr</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-bluesky"></i><span class="label">Bluesky</span></a></li>
+          <li><a href="#" class="icon brands"><i class="fa-brands fa-mastodon"></i><span class="label">Mastodon</span></a></li>
+        </ul>
       </div>
       <a href="#contact" class="button style2 down anchored">Next</a>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="main style3 secondary">
       <div class="content">
-        <header><h2>Contact Me</h2></header>
+        <header>
+          <h2>Contact Me</h2>
+          <p>For inquiries, commissions, or to simply share your thoughts, please reach out.</p>
+        </header>
+
         <div class="box">
           <form name="contact" method="POST" data-netlify="true">
             <p><label>Your Name: <input type="text" name="name" /></label></p>
             <p><label>Your Email: <input type="email" name="email" /></label></p>
+            <p>
+              <label>Inquiry:
+                <select name="inquiry[]" multiple>
+                  <option value="commission">commission</option>
+                  <option value="other">other</option>
+                </select>
+              </label>
+            </p>
             <p><label>Message: <textarea name="message"></textarea></label></p>
             <p><button type="submit">Send</button></p>
           </form>
@@ -110,7 +230,28 @@
       </div>
     </section>
 
-    <!-- Scripts -->
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons"></ul>
+      <ul class="menu"></ul>
+    </footer>
+
+    <!-- Scripts (keep this order) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/slideshow.js"></script>
+
+    <!-- Final safety: if anything above fails, still remove preloader -->
+    <script>
+      window.addEventListener('load', function () {
+        document.body.classList.remove('is-preload');
+      });
+    </script>
   </body>
 </html>
