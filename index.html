@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/slideshow.css" />
     <!-- Small “safety” overrides: kills the preloader if JS fails, tweaks mobile slideshow dots -->
     <link rel="stylesheet" href="assets/css/overrides.css" />
 
@@ -23,8 +24,7 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <!-- Preload first hero for faster LCP (optional) -->
-    <link rel="preload" as="image"
-      href="images/slideshow/cerfs.jpg">
+    <link rel="preload" as="image" href="images/slideshow/optimized/cerfs-960.webp">
   </head>
 
   <!-- NOTE: no is-preload class, so the page never gets stuck white -->
@@ -39,22 +39,22 @@
         <div class="slide active"
              slideshowImage="images/slideshow/cerfs.jpg"
              slideshowImagePosition="center 55%"
-             slideshowImagePositionMobile="center 25%"></div>
+             slideshowImagePositionMobile="center 25%" slideshowVariants='[{"src": "images/slideshow/images/slideshow/cerfs.jpg", "width": 2000, "format": "jpg"}]'></div>
 
         <div class="slide"
              slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg"
-             slideshowImagePositionMobile="center 30%"></div>
+             slideshowImagePositionMobile="center 30%" slideshowVariants='[{"src": "images/slideshow/images/slideshow/grenouilles-et-nénuphars.jpg", "width": 2000, "format": "jpg"}]'></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/crevettes.jpg"></div>
+             slideshowImage="images/slideshow/crevettes.jpg" slideshowVariants='[{"src": "images/slideshow/images/slideshow/crevettes.jpg", "width": 2000, "format": "jpg"}]'></div>
 
         <div class="slide"
-             slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg"></div>
+             slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg" slideshowVariants='[{"src": "images/slideshow/images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg", "width": 2000, "format": "jpg"}]'></div>
 
         <div class="slide"
              slideshowImage="images/slideshow/lion-départ-de-rampe.jpg"
              slideshowImagePosition="center 45%"
-             slideshowImagePositionMobile="center 28%"></div>
+             slideshowImagePositionMobile="center 28%" slideshowVariants='[{"src": "images/slideshow/images/slideshow/lion-départ-de-rampe.jpg", "width": 2000, "format": "jpg"}]'></div>
       </div>
 
       <!-- Slideshow Navigation (one dot per slide) -->
