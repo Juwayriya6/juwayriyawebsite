@@ -1,44 +1,69 @@
-// Simple, crash-proof slideshow
-document.addEventListener('DOMContentLoaded', () => {
-  try {
-    const slides = Array.from(document.querySelectorAll('#intro .slide'));
-    const dots = Array.from(document.querySelectorAll('#intro .slideshowNav .navDot'));
-    if (slides.length === 0) return;
+/* Vanilla JS slideshow with nav dots and data-attributes */
+(function(){
+  const intro = document.getElementById('intro');
+  if(!intro) return;
+  const slides = Array.from(intro.querySelectorAll('.slideshow .slide'));
+  const dots   = Array.from(intro.querySelectorAll('.slideshowNav .navDot'));
+  if(slides.length === 0) return;
 
-    // Apply background images and focal points from attributes
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    slides.forEach(s => {
-      const src = s.getAttribute('slideshowImage');
-      if (src) s.style.backgroundImage = `url("${src}")`;
+  // Initialize slide backgrounds and positions
+  function applyBackground(slide){
+    const src = slide.getAttribute('slideshowImage');
+    if(src) slide.style.backgroundImage = `url("${src}")`;
 
-      const mobilePos = s.getAttribute('slideshowImagePositionMobile');
-      const deskPos = s.getAttribute('slideshowImagePosition');
-      if (isMobile && mobilePos) s.style.backgroundPosition = mobilePos;
-      else if (deskPos) s.style.backgroundPosition = deskPos;
-    });
-
-    // State
-    let i = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
-    if (i >= slides.length) i = 0;
-    function show(n) {
-      slides[i].classList.remove('active');
-      if (dots[i]) dots[i].classList.remove('active');
-      i = (n + slides.length) % slides.length;
-      slides[i].classList.add('active');
-      if (dots[i]) dots[i].classList.add('active');
-    }
-
-    // Dots
-    dots.forEach(btn => {
-      btn.addEventListener('click', () => show(parseInt(btn.dataset.index || '0', 10)));
-    });
-
-    // Auto-rotate
-    setInterval(() => show(i + 1), 4500);
-  } catch (e) {
-    console.error('slideshow error:', e);
-  } finally {
-    // Ensure preloader is gone even if something breaks
-    document.body.classList.remove('is-preload');
+    // Position selection (desktop vs mobile)
+    const mobile = window.matchMedia('(max-width: 768px)').matches;
+    const posAttr = mobile
+      ? slide.getAttribute('slideshowImagePositionMobile')
+      : slide.getAttribute('slideshowImagePosition');
+    if(posAttr) slide.style.backgroundPosition = posAttr;
   }
-});
+
+  slides.forEach(applyBackground);
+  window.addEventListener('resize', () => slides.forEach(applyBackground));
+
+  let index = 0;
+  // Remove any pre-existing 'active' classes and set first
+  slides.forEach(s => s.classList.remove('active'));
+  if (slides[0]) slides[0].classList.add('active');
+  if (dots[0]) dots[0].classList.add('active');
+
+  let timerId = null;
+  const INTERVAL = 6000;
+
+  function showSlide(i){
+    index = (i + slides.length) % slides.length;
+    slides.forEach((s, si) => s.style.opacity = (si === index ? '1' : '0'));
+    slides.forEach((s, si) => s.classList.toggle('active', si === index));
+    dots.forEach((d, di) => d.classList.toggle('active', di === index));
+  }
+
+  function next(){ showSlide(index + 1); }
+
+  // Start autoplay
+  function start(){
+    stop();
+    timerId = setInterval(next, INTERVAL);
+  }
+  function stop(){
+    if(timerId) { clearInterval(timerId); timerId = null; }
+  }
+
+  // Wire dots
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const i = parseInt(dot.getAttribute('data-index'), 10) || 0;
+      showSlide(i);
+      start();
+    });
+  });
+
+  // First paint
+  showSlide(0);
+  start();
+
+  // Pause on visibility change (tab hidden)
+  document.addEventListener('visibilitychange', () => {
+    if(document.hidden) stop(); else start();
+  });
+})();

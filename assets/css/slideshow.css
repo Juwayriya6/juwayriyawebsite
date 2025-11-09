@@ -1,14 +1,65 @@
-/* Slideshow overrides (safe to drop-in) */
-#intro { position: relative; }
-#intro .slideshow { position:absolute; inset:0; z-index:0; }
-#intro .slide { position:absolute; inset:0; background-size:cover; background-position:center; background-repeat:no-repeat; opacity:0; transition:opacity 600ms ease; }
-#intro .slide.active { opacity:1; }
-#intro .overlay { position:absolute; inset:0; background: url("../images/overlay.png"); z-index:2; pointer-events:none; }
-#intro .slideshowNav { position:absolute; right:30px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:3; }
-#intro .navDot { width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,.55); border:none; cursor:pointer; }
-#intro .navDot.active { background:rgba(255,255,255,.95); }
-@media (max-width: 1000px){
-  #intro .slideshowNav{ top:18px; right:50%; transform:translateX(50%); flex-direction:row; }
+/* ===== Slideshow Overlay (texture + darken) ===== */
+:root{
+  /* Adjust this to taste: 0.35 (lighter) … 0.60 (darker) */
+  --hero-darken: .48;
+  --hero-texture: url("images/overlay.png");
 }
-/* Ensure intro content stays on top */
-#intro .content { position:relative; z-index:4; }
+
+#intro .slideshow { position: absolute; inset: 0; z-index: -1; }
+#intro .slide { position: absolute; inset: 0; background-size: cover; background-position: center; }
+
+#intro .overlay{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(0,0,0,var(--hero-darken)), rgba(0,0,0,var(--hero-darken))),
+    var(--hero-texture);
+  background-size: auto, 256px 256px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, top left;
+  background-attachment: scroll, scroll;
+}
+
+/* Ensure text sits above the overlay */
+#intro .content { position: relative; z-index: 3; }
+
+/* Mobile tweaks */
+@media (max-width: 768px){
+  #intro .overlay{ --hero-darken: .55; }
+  #intro .slide { background-attachment: scroll !important; }
+}
+
+/* Optional: style dots if main.css doesn't */
+.slideshowNav{
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 10;
+}
+.slideshowNav .navDot{
+  width: 12px; height: 12px; border-radius: 50%; border: 0;
+  background: rgba(255,255,255,.5); cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+  padding: 0; margin: 0;
+}
+.slideshowNav .navDot:hover,
+.slideshowNav .navDot.active{
+  background: rgba(255,255,255,.9);
+  transform: scale(1.2);
+}
+
+@media (max-width: 1000px){
+  .slideshowNav{
+    top: 20px; bottom: auto; left: 50%; right: auto;
+    transform: translateX(-50%);
+    flex-direction: row; gap: 12px;
+  }
+  .slideshowNav .navDot{ width: 14px; height: 14px; }
+}
