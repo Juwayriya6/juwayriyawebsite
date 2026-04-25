@@ -1,91 +1,102 @@
 :root {
-  --hero-darken: .28;
-  --hero-texture: url("images/overlay.png");
+  --hero-darken: 0.32;
 }
 
+/* Make intro hold the slideshow correctly */
 #intro {
-  position: relative;
-  overflow: hidden;
-  background: #111;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #111 !important;
 }
 
+/* Slideshow layer */
 #intro .slideshow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: #111;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+  background: #111 !important;
+  overflow: hidden !important;
 }
 
+/* Individual slides */
 #intro .slide {
-  position: absolute;
-  inset: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-attachment: scroll !important;
+  background-color: #111 !important;
+
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  background-color: #111;
 }
 
+/* Active slide */
 #intro .slide.active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
+/* Dark overlay */
 #intro .overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, var(--hero-darken)), rgba(0, 0, 0, var(--hero-darken))),
-    var(--hero-texture);
-  background-size: auto, 256px 256px;
-  background-repeat: no-repeat, repeat;
-  background-position: center, top left;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: rgba(0, 0, 0, var(--hero-darken)) !important;
 }
 
+/* Keep nav/text above slideshow */
 #intro #header,
 #intro .content,
-.slideshowNav {
-  position: relative;
-  z-index: 5;
+#intro .slideshowNav {
+  position: relative !important;
+  z-index: 5 !important;
 }
 
-.slideshowNav {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* Dots */
+#intro .slideshowNav {
+  position: absolute !important;
+  right: 30px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
 }
 
-.slideshowNav .navDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 0;
-  background: rgba(255,255,255,.5);
-  cursor: pointer;
+#intro .navDot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  cursor: pointer !important;
 }
 
-.slideshowNav .navDot.active,
-.slideshowNav .navDot:hover {
-  background: white;
-  transform: scale(1.25);
+#intro .navDot.active,
+#intro .navDot:hover {
+  background: #fff !important;
+  transform: scale(1.25) !important;
 }
 
+/* Mobile / tablet */
 @media (max-width: 768px) {
   #intro .slide {
-    background-size: cover;
+    background-size: contain !important;
+    background-position: center center !important;
   }
 
-  .slideshowNav {
-    top: 20px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    flex-direction: row;
+  #intro .slideshowNav {
+    top: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row !important;
   }
 }
