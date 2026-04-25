@@ -717,3 +717,10 @@ body.is-touch .main { background-attachment: scroll !important; }
 	}
 	#intro .navDot { width: 14px; height: 14px; }
 }
+#me,
+#social {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-color: #111 !important;
+}
