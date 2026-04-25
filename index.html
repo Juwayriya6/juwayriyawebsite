@@ -1,74 +1,133 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover, user-scalable=yes">
   <title>Juwayriya Abdullahi</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/6a115512bd.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/slideshow.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body>
+<body class="is-preload">
 
-<!-- NAV -->
-<nav>
-  <ul>
-    <li><a href="#me">About Me</a></li>
-    <li><a href="#art">My Art</a></li>
-    <li><a href="communications.html">Communications</a></li>
-    <li><a href="#social">Socials</a></li>
-    <li><a href="#contact">Contact Me</a></li>
-  </ul>
-</nav>
+  <section id="intro" class="main style1 dark fullscreen">
+    <div class="slideshow">
+      <div class="slide" slideshowImage="images/slideshow/cerfs.jpg" slideshowImagePosition="center center" slideshowImagePositionMobile="center center"></div>
+      <div class="slide" slideshowImage="images/slideshow/grenouilles-et-nénuphars.jpg" slideshowImagePosition="center center" slideshowImagePositionMobile="center center"></div>
+      <div class="slide" slideshowImage="images/slideshow/crevettes.jpg" slideshowImagePosition="center center" slideshowImagePositionMobile="center center"></div>
+      <div class="slide" slideshowImage="images/slideshow/abstract-design-based-on-berries-leaves-grasses.jpg" slideshowImagePosition="center center" slideshowImagePositionMobile="center center"></div>
+      <div class="slide" slideshowImage="images/slideshow/lion-départ-de-rampe.jpg" slideshowImagePosition="center center" slideshowImagePositionMobile="center center"></div>
+      <div class="overlay"></div>
+    </div>
 
-<!-- HERO -->
-<header class="hero">
-  <h1>Juwayriya Abdullahi</h1>
-  <p>Artist & Communications Specialist</p>
-</header>
+    <div class="slideshowNav" aria-label="Slideshow navigation">
+      <button class="navDot" data-index="0" aria-label="Show image 1"></button>
+      <button class="navDot" data-index="1" aria-label="Show image 2"></button>
+      <button class="navDot" data-index="2" aria-label="Show image 3"></button>
+      <button class="navDot" data-index="3" aria-label="Show image 4"></button>
+      <button class="navDot" data-index="4" aria-label="Show image 5"></button>
+    </div>
 
-<!-- SLIDESHOW -->
-<section id="art" class="slideshow-container">
+    <header id="header">
+      <nav>
+        <ul>
+          <li><a href="#me">About Me</a></li>
+          <li><a href="#art">My Art</a></li>
+          <li><a href="communications.html">Communications</a></li>
+          <li><a href="#social">Socials</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="slide active">
-    <img src="images/art1.jpg" alt="Artwork 1">
-  </div>
+    <div class="content">
+      <header><h2>Hello.</h2></header>
+      <p>My work is a vibrant celebration of nature, inspired by the elegance of East African art.</p>
+      <p>Explore my world of intricate patterns and decorative designs.</p>
+      <footer><a href="#me" class="button style2 down">More</a></footer>
+    </div>
+  </section>
 
-  <div class="slide">
-    <img src="images/art2.jpg" alt="Artwork 2">
-  </div>
+  <section id="me" class="main style2 right dark fullscreen" data-bg="images/aigles.jpg" data-bg-position="left bottom">
+    <div class="content box style2">
+      <header><h2>About Me</h2></header>
+      <p>I am Juwayriya Abdullahi, a Canadian visual artist and communications professional. My creative work draws on dreamscapes, surrealism, nature, colour, and ornate visual storytelling.</p>
+    </div>
+    <a href="#art" class="button style2 down anchored">Next</a>
+  </section>
 
-  <div class="slide">
-    <img src="images/art3.jpg" alt="Artwork 3">
-  </div>
+  <section id="art" class="main style3 primary">
+    <div class="content">
+      <header>
+        <h2>My Art</h2>
+        <p>My artistic expression is a testament to the beauty of the natural world.</p>
+      </header>
 
-</section>
+      <div class="gallery">
+        <article class="from-left"><a href="images/gallery/cygne-sauvage.jpg" class="image fit"><img src="images/gallery/cygne-sauvage.jpg" title="buranbur" alt="" /></a></article>
+        <article class="from-right"><a href="images/gallery/cytises-et-digitales.jpg" class="image fit"><img src="images/gallery/cytises-et-digitales.jpg" title="a woman in Somalia" alt="" /></a></article>
+        <article class="from-left"><a href="images/gallery/cacatoës-et-magnolia.jpg" class="image fit"><img src="images/gallery/cacatoës-et-magnolia.jpg" title="temperance" alt="" /></a></article>
+        <article class="from-right"><a href="images/gallery/carpocoris.jpg" class="image fit"><img src="images/gallery/carpocoris.jpg" title="the crane wife" alt="" /></a></article>
+        <article class="from-left"><a href="images/gallery/nénuphar.jpg" class="image fit"><img src="images/gallery/nénuphar.jpg" title="when the crops grow" alt="" /></a></article>
+        <article class="from-right"><a href="images/gallery/paons-et-pavots.jpg" class="image fit"><img src="images/gallery/paons-et-pavots.jpg" title="Paons et Pavots" alt="" /></a></article>
+        <article class="from-left"><a href="images/gallery/faisans-ordinaires.jpg" class="image fit"><img src="images/gallery/faisans-ordinaires.jpg" title="My Mother's village" alt="" /></a></article>
+        <article class="from-right"><a href="images/gallery/martinets-et-chèvrefeuille.jpg" class="image fit"><img src="images/gallery/martinets-et-chèvrefeuille.jpg" title="Null & Void" alt="" /></a></article>
+      </div>
+    </div>
+  </section>
 
-<!-- ABOUT -->
-<section id="me" class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a visual artist and communications professional focused on creating engaging,
-    accessible content through storytelling, design, and digital media.
-  </p>
-</section>
+  <section id="social" class="main style2 left dark fullscreen" data-bg="images/coqs-et-poules.jpg" data-bg-position="25%">
+    <div class="content box style2">
+      <header><h2>Find Me</h2></header>
+      <p>Follow my artistic journey and get the latest updates on my creations and exhibitions.</p>
 
-<!-- SOCIAL -->
-<section id="social" class="section">
-  <h2>Socials</h2>
-  <p>
-    <a href="#">Instagram</a> |
-    <a href="#">LinkedIn</a>
-  </p>
-</section>
+      <ul class="icons">
+        <li><a href="#" class="icon brands"><i class="fa-brands fa-instagram"></i><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands"><i class="fa-brands fa-linkedin-in"></i><span class="label">LinkedIn</span></a></li>
+      </ul>
+    </div>
+    <a href="#contact" class="button style2 down anchored">Next</a>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>Email: juwayriya.abdullahii@gmail.com</p>
-</section>
+  <section id="contact" class="main style3 secondary">
+    <div class="content">
+      <header>
+        <h2>Contact Me</h2>
+        <p>For inquiries, commissions, collaborations, or communications work, please reach out.</p>
+      </header>
 
-<script src="slideshow.js"></script>
+      <div class="box">
+        <form name="contact" method="POST" data-netlify="true">
+          <p><label>Your Name: <input type="text" name="name" /></label></p>
+          <p><label>Your Email: <input type="email" name="email" /></label></p>
+          <p><label>Message: <textarea name="message"></textarea></label></p>
+          <p><button type="submit">Send</button></p>
+        </form>
+      </div>
+    </div>
+  </section>
 
+  <footer id="footer">
+    <ul class="menu"></ul>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.poptrox.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/slideshow.js"></script>
 </body>
 </html>
