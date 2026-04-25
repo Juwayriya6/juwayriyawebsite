@@ -1,38 +1,48 @@
-/* ===== Slideshow Overlay (texture + darken) ===== */
-:root{
-  /* Adjust this to taste: 0.35 (lighter) … 0.60 (darker) */
-  --hero-darken: .48;
+:root {
+  --hero-darken: .35;
   --hero-texture: url("images/overlay.png");
 }
 
-#intro .slideshow { position: absolute; inset: 0; z-index: -1; }
-#intro .slide { position: absolute; inset: 0; background-size: cover; background-position: center; }
+#intro .slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #111;
+}
 
-#intro .overlay{
+#intro .slide {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#intro .slide.active {
+  opacity: 1;
+}
+
+#intro .overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 2;
   background-image:
-    linear-gradient(rgba(0,0,0,var(--hero-darken)), rgba(0,0,0,var(--hero-darken))),
+    linear-gradient(rgba(0, 0, 0, var(--hero-darken)), rgba(0, 0, 0, var(--hero-darken))),
     var(--hero-texture);
   background-size: auto, 256px 256px;
   background-repeat: no-repeat, repeat;
   background-position: center, top left;
-  background-attachment: scroll, scroll;
 }
 
-/* Ensure text sits above the overlay */
-#intro .content { position: relative; z-index: 3; }
-
-/* Mobile tweaks */
-@media (max-width: 768px){
-  #intro .overlay{ --hero-darken: .55; }
-  #intro .slide { background-attachment: scroll !important; }
+#intro .content {
+  position: relative;
+  z-index: 3;
 }
 
-/* Optional: style dots if main.css doesn't */
-.slideshowNav{
+.slideshowNav {
   position: absolute;
   right: 30px;
   top: 50%;
@@ -43,23 +53,46 @@
   gap: 15px;
   z-index: 10;
 }
-.slideshowNav .navDot{
-  width: 12px; height: 12px; border-radius: 50%; border: 0;
-  background: rgba(255,255,255,.5); cursor: pointer;
+
+.slideshowNav .navDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.5);
+  cursor: pointer;
   transition: transform .2s ease, background .2s ease;
-  padding: 0; margin: 0;
-}
-.slideshowNav .navDot:hover,
-.slideshowNav .navDot.active{
-  background: rgba(255,255,255,.9);
-  transform: scale(1.2);
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 1000px){
-  .slideshowNav{
-    top: 20px; bottom: auto; left: 50%; right: auto;
-    transform: translateX(-50%);
-    flex-direction: row; gap: 12px;
+.slideshowNav .navDot:hover,
+.slideshowNav .navDot.active {
+  background: rgba(255,255,255,.95);
+  transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+  #intro .slide {
+    background-size: cover;
   }
-  .slideshowNav .navDot{ width: 14px; height: 14px; }
+
+  #intro .overlay {
+    --hero-darken: .50;
+  }
+
+  .slideshowNav {
+    top: 20px;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .slideshowNav .navDot {
+    width: 14px;
+    height: 14px;
+  }
 }
