@@ -1,12 +1,18 @@
 :root {
-  --hero-darken: .35;
+  --hero-darken: .28;
   --hero-texture: url("images/overlay.png");
+}
+
+#intro {
+  position: relative;
+  overflow: hidden;
+  background: #111;
 }
 
 #intro .slideshow {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   background: #111;
 }
 
@@ -18,6 +24,7 @@
   background-position: center center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  background-color: #111;
 }
 
 #intro .slide.active {
@@ -37,9 +44,11 @@
   background-position: center, top left;
 }
 
-#intro .content {
+#intro #header,
+#intro .content,
+.slideshowNav {
   position: relative;
-  z-index: 3;
+  z-index: 5;
 }
 
 .slideshowNav {
@@ -49,9 +58,7 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
-  z-index: 10;
 }
 
 .slideshowNav .navDot {
@@ -61,14 +68,11 @@
   border: 0;
   background: rgba(255,255,255,.5);
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease;
-  padding: 0;
-  margin: 0;
 }
 
-.slideshowNav .navDot:hover,
-.slideshowNav .navDot.active {
-  background: rgba(255,255,255,.95);
+.slideshowNav .navDot.active,
+.slideshowNav .navDot:hover {
+  background: white;
   transform: scale(1.25);
 }
 
@@ -77,22 +81,11 @@
     background-size: cover;
   }
 
-  #intro .overlay {
-    --hero-darken: .50;
-  }
-
   .slideshowNav {
     top: 20px;
-    bottom: auto;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
     flex-direction: row;
-    gap: 12px;
-  }
-
-  .slideshowNav .navDot {
-    width: 14px;
-    height: 14px;
   }
 }
