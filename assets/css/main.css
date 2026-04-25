@@ -717,10 +717,30 @@ body.is-touch .main { background-attachment: scroll !important; }
 	}
 	#intro .navDot { width: 14px; height: 14px; }
 }
+/* Fix About Me + Find Me background images */
 #me,
 #social {
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
   background-color: #111 !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  background-size: auto 85% !important;
+}
+
+/* About Me image */
+#me {
+  background-position: left center !important;
+}
+
+/* Find Me image */
+#social {
+  background-position: right center !important;
+}
+
+/* Mobile/tablet */
+@media screen and (max-width: 1000px) {
+  #me,
+  #social {
+    background-size: contain !important;
+    background-position: center center !important;
+  }
 }
