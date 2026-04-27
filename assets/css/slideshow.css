@@ -1,57 +1,52 @@
 :root {
-  --hero-darken: 0.32;
+  --hero-darken: 0.28;
 }
 
-/* Make intro hold the slideshow correctly */
+/* Hero slideshow container */
+
 #intro {
   position: relative !important;
   overflow: hidden !important;
   background: #111 !important;
 }
 
-/* Slideshow layer */
 #intro .slideshow {
   position: absolute !important;
   inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
   z-index: 1 !important;
-  background: #111 !important;
   overflow: hidden !important;
+  background: #111 !important;
 }
 
-/* Individual slides */
+/* Consistent desktop + mobile slideshow behavior */
 #intro .slide {
   position: absolute !important;
   inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-
-  background-size: contain !important;
+  background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-attachment: scroll !important;
-  background-color: #111 !important;
-
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
-/* Active slide */
 #intro .slide.active {
   opacity: 1 !important;
 }
 
-/* Dark overlay */
+/* Overlay keeps text readable without creating black blocks */
 #intro .overlay {
   position: absolute !important;
   inset: 0 !important;
   z-index: 2 !important;
   pointer-events: none !important;
-  background: rgba(0, 0, 0, var(--hero-darken)) !important;
+  background: linear-gradient(
+    rgba(0,0,0,var(--hero-darken)),
+    rgba(0,0,0,var(--hero-darken))
+  );
 }
 
-/* Keep nav/text above slideshow */
+/* Keep content above slideshow */
 #intro #header,
 #intro .content,
 #intro .slideshowNav {
@@ -59,7 +54,7 @@
   z-index: 5 !important;
 }
 
-/* Dots */
+/* Slideshow dots */
 #intro .slideshowNav {
   position: absolute !important;
   right: 30px !important;
@@ -75,7 +70,8 @@
   height: 12px !important;
   border-radius: 50% !important;
   border: none !important;
-  background: rgba(255, 255, 255, 0.55) !important;
+  padding: 0 !important;
+  background: rgba(255,255,255,0.55) !important;
   cursor: pointer !important;
 }
 
@@ -85,15 +81,16 @@
   transform: scale(1.25) !important;
 }
 
-/* Mobile / tablet */
-@media (max-width: 768px) {
+/* Mobile keeps same visual logic, just moves dots */
+@media screen and (max-width: 768px) {
   #intro .slide {
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center center !important;
   }
 
   #intro .slideshowNav {
-    top: 20px !important;
+    top: auto !important;
+    bottom: 24px !important;
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
