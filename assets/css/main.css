@@ -315,22 +315,34 @@ textarea {
 
 /* Icons */
 
+/* FIX SOCIAL ICON LAYOUT */
 .icons {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* spacing between icons */
+  margin-top: 2em;
 }
 
 .icons li {
-  display: inline-block;
+  list-style: none;
 }
 
 .icons a {
-  display: inline-block;
-  font-size: 1.5em;
-  width: 2.25em;
-  height: 2.25em;
-  line-height: 2.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  width: 2.5em;
+  height: 2.5em;
+  color: #98c593;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
+.icons a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
 /* Footer */
 
 #footer {
